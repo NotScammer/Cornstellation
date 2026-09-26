@@ -1,0 +1,18 @@
+{
+  "eligible_plots": 2131,
+  "prediction_rows_checked": 31965,
+  "source_label_max_absolute_difference": 0.0,
+  "feature_labels_match_source": true,
+  "same_plot_cohort_every_model_cutoff": true,
+  "all_predictions_finite": true,
+  "units": "bu/ac at 15.5% moisture, as documented by dataset authors",
+  "unit_processing": "yieldPerAcre used directly; no log transform or acre/moisture conversion in model pipeline",
+  "original_harvest_calculation": "Raw grain mass, moisture and full area inputs are not provided here; author calculations cannot be independently reconstructed.",
+  "usda_source": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/cropan25.pdf",
+  "source_report_page": 10,
+  "input_sha256": {
+    "outputs\\held_out_predictions.csv": "7b547a400bb33edca4dd7f44470ac8c59501dd469d7ceb34fcafdf3a98358f66",
+    "outputs\\broad_performance\\ridge_predictions.csv": "229007fe432476a3e9872794276a3c14ba51b7e171a40f503cd82b38e7c68c6b",
+    "outputs\\features.parquet": "2f4ad5e2d550e548419540598ceaa2100eaa52e04ad6a4ea3a9305db4bbb9b5f"
+  }
+}

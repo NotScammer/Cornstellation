@@ -9,6 +9,7 @@ import streamlit as st
 
 from maize.modeling import scout_table, scouting_metrics
 from maize.branding import render_team_branding
+from maize.yield_audit import render_yield_audit
 
 st.set_page_config(page_title="FieldSignal by Cornstellation | Maize scouting", page_icon="🌽", layout="wide")
 st.markdown("""
@@ -49,13 +50,17 @@ with st.sidebar:
     st.header("Scouting brief")
     cutoff = st.select_slider("Days after planting", options=sorted(predictions.cutoff.unique().tolist()), value=int(predictions.cutoff.max()))
     location = st.selectbox("Trial location", sorted(predictions.location.unique()))
-    capacity = st.slider("Scouting capacity (%)", min_value=1, max_value=100, value=10, step=1)
-    st.caption("Capacity is applied within the selected site. Plots are ordered by lowest predicted yield.")
+    available_plots = int((predictions.cutoff.eq(cutoff) & predictions.location.eq(location) & predictions.model.eq("combined")).sum())
+    if "scouting_capacity_count" in st.session_state:
+        st.session_state.scouting_capacity_count = min(max(1, st.session_state.scouting_capacity_count), available_plots)
+    capacity = st.number_input("Number of trial plots to scout", min_value=1, max_value=available_plots,
+                               value=min(10, available_plots), step=1, key="scouting_capacity_count")
+    st.caption(f"{capacity} of {available_plots} plots ({capacity / available_plots:.1%}) at this location. Each visit is one research plot, not an entire farm field.")
     st.divider()
     st.write("**Prediction inputs**")
     st.caption("Planting date · nitrogen · irrigation · hybrid · six-band satellite observations available by the cutoff.")
 
-table = scout_table(predictions, cutoff, location, capacity / 100)
+table = scout_table(predictions, cutoff, location, capacity=int(capacity))
 selected = table.loc[table.selected]
 group = predictions.loc[predictions.cutoff.eq(cutoff) & predictions.location.eq(location) & predictions.model.eq("combined")]
 missing = int(table.missing_imagery.sum())
@@ -65,6 +70,9 @@ b.metric("Visits in this brief", f"{len(selected):,}")
 c.metric("Plots with satellite coverage", f"{len(table)-missing:,} / {len(table):,}")
 if missing:
     st.warning(f"{missing} plots have no usable satellite observation by day {cutoff}. Predictions remain available using the combined model's learned handling of missing imagery; these are not validated imagery-based forecasts for those plots.")
+negative_predictions = int(table.predicted_yield.lt(0).sum())
+if negative_predictions:
+    st.warning(f"{negative_predictions} predictions at this site are below zero. These are invalid yield estimates and indicate a model failure at this cutoff; values are shown unchanged for transparency.")
 
 scouting_tab, evaluation_tab, quality_tab = st.tabs(["Scouting priorities", "Evaluate the forecast", "Data & limitations"])
 display_names = {"scouting_rank": "Priority", "plot_id": "Plot", "genotype": "Hybrid", "predicted_yield": "Predicted yield (bu/ac)",
@@ -72,6 +80,7 @@ display_names = {"scouting_rank": "Priority", "plot_id": "Plot", "genotype": "Hy
 display_columns = list(display_names)
 with scouting_tab:
     st.subheader(f"{location}: your next {len(selected)} visits")
+    st.caption(f"This list deliberately selects the lowest predictions: selected mean {selected.predicted_yield.mean():.1f} bu/ac, versus {table.predicted_yield.mean():.1f} bu/ac across all {len(table)} plots at this site. These are held-out CatBoost predictions.")
     st.write("Use low predicted yield as a reason to inspect. Field observations are needed to establish the cause and whether intervention can help.")
     st.dataframe(selected[display_columns].rename(columns=display_names), hide_index=True, width="stretch")
     st.download_button("Download scouting brief", selected.to_csv(index=False).encode("utf-8"),
@@ -97,7 +106,8 @@ with evaluation_tab:
     st.plotly_chart(figure, width="stretch")
     st.dataframe(current[["n", "mae", "rmse", "bias", "within_site_spearman"]].round(3), width="stretch")
     st.caption("Bias is predicted minus actual yield. Overall errors are plot-weighted; overall rank correlation is the mean of defined within-site correlations.")
-    performance = scouting_metrics(group, capacity / 100, run_config["underperformance_fraction"])
+    render_yield_audit(output, cutoff, location=location if scope == "Selected site" else None)
+    performance = scouting_metrics(group, underperformance=run_config["underperformance_fraction"], capacity=int(capacity))
     st.subheader(f"Did the scouting brief find low-yield plots in {location}?")
     a, b = st.columns(2)
     a.metric("Precision at selected capacity", f"{performance['precision_at_k']:.0%}")

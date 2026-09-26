@@ -99,6 +99,13 @@ def test_scouting_metrics_known_ranking():
     result = scouting_metrics(frame)
     assert result["k"] == 1 and result["hits"] == 1
     assert result["precision_at_k"] == 1 and result["recall_at_k"] == 0.5
+    exact = scouting_metrics(frame, capacity=3)
+    assert exact["k"] == 3 and exact["hits"] == 2
+    assert exact["precision_at_k"] == pytest.approx(2 / 3)
+    assert exact["recall_at_k"] == 1
+    for invalid in [0, 11, 1.5, True]:
+        with pytest.raises(ValueError):
+            scouting_metrics(frame, capacity=invalid)
 
 
 def test_training_and_unlabeled_inference(tmp_path):

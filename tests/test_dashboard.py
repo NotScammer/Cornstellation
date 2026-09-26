@@ -27,14 +27,15 @@ def test_dashboard_filters_and_download_contents(monkeypatch):
     assert not app.exception
     app.selectbox[0].select("MOValley")
     app.select_slider[0].set_value(60)
-    app.slider[0].set_value(20)
+    app.number_input[0].set_value(20)
     app.run()
     assert not app.exception
     assert any("no usable satellite" in w.value for w in app.warning)
     actual_table = app.dataframe[0].value
     predictions = pd.read_csv(OUTPUT / "held_out_predictions.csv")
-    expected = scout_table(predictions, 60, "MOValley", 0.2)
+    expected = scout_table(predictions, 60, "MOValley", capacity=20)
     chosen = expected.loc[expected.selected]
+    assert len(chosen) == 20
     assert actual_table["Plot"].tolist() == chosen.plot_id.tolist()
     assert actual_table["Predicted yield (bu/ac)"].tolist() == chosen.predicted_yield.tolist()
     assert "yieldPerAcre" not in actual_table
@@ -47,3 +48,10 @@ def test_dashboard_filters_and_download_contents(monkeypatch):
     app.select_slider[0].set_value(75).run()
     assert not app.exception
     assert not any("no usable satellite" in w.value for w in app.warning)
+    app.selectbox[0].select("Ames").run()
+    app.number_input[0].set_value(487).run()
+    assert len(app.dataframe[0].value) == 487
+    app.selectbox[0].select("MOValley").run()
+    assert not app.exception
+    assert app.number_input[0].value == 163
+    assert len(app.dataframe[0].value) == 163

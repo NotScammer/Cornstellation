@@ -10,6 +10,7 @@ import streamlit as st
 
 from maize.insights import LABELS
 from maize.branding import render_team_branding
+from maize.yield_audit import render_yield_audit
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = Path(os.environ.get("MAIZE_OUTPUT", str(ROOT / "outputs")))
@@ -115,6 +116,7 @@ with management:
 
 with validation:
     st.subheader("Yield accuracy and hybrid selection are different tests")
+    render_yield_audit(OUTPUT, cutoff, chosen_model)
     st.write("Every location is held out once. No held-out harvest yield enters its forecast. Additional Ridge comparisons are exploratory development on 2022, with regularization selected inside each training fold.")
     metrics = tables["yield_metrics"]
     overall = metrics.loc[metrics.location.eq("Overall") & metrics.cutoff.isin([75, 90])].copy()

@@ -62,8 +62,19 @@ def regression_metrics(group):
             "within_site_spearman": float(np.mean(valid)) if valid else np.nan}
 
 
-def scouting_metrics(group, fraction=0.1, underperformance=0.2):
-    k = max(1, math.ceil(len(group) * fraction))
+def scouting_count(total, fraction=0.1, capacity=None):
+    """Resolve an exact plot count, while retaining fractional batch-report support."""
+    if capacity is not None:
+        if isinstance(capacity, bool) or not isinstance(capacity, (int, np.integer)) or not 1 <= capacity <= total:
+            raise ValueError("Scouting capacity must be an integer from 1 to the number of plots.")
+        return int(capacity)
+    if not 0 < fraction <= 1:
+        raise ValueError("Scouting fraction must be between 0 and 1.")
+    return max(1, math.ceil(total * fraction))
+
+
+def scouting_metrics(group, fraction=0.1, underperformance=0.2, *, capacity=None):
+    k = scouting_count(len(group), fraction, capacity)
     target_n = max(1, math.ceil(len(group) * underperformance))
     true_low = set(group.sort_values(["yieldPerAcre", "plot_id"]).head(target_n).plot_id)
     chosen = set(group.sort_values(["predicted_yield", "plot_id"]).head(k).plot_id)
@@ -71,13 +82,11 @@ def scouting_metrics(group, fraction=0.1, underperformance=0.2):
     return {"k": k, "target_n": target_n, "hits": hits, "precision_at_k": hits / k, "recall_at_k": hits / target_n}
 
 
-def scout_table(predictions, cutoff, location, fraction=0.1):
-    if not 0 < fraction <= 1:
-        raise ValueError("Scouting fraction must be between 0 and 1.")
+def scout_table(predictions, cutoff, location, fraction=0.1, *, capacity=None):
     frame = predictions.loc[predictions.cutoff.eq(cutoff) & predictions.location.eq(location)
                             & predictions.model.eq("combined")].copy()
     frame = frame.sort_values(["predicted_yield", "plot_id"]).reset_index(drop=True)
-    k = max(1, math.ceil(len(frame) * fraction))
+    k = scouting_count(len(frame), fraction, capacity)
     frame["scouting_rank"] = np.arange(1, len(frame) + 1)
     frame["selected"] = frame.scouting_rank.le(k)
     columns = ["scouting_rank", "selected", "plot_id", "location", "experiment", "range", "row", "genotype",

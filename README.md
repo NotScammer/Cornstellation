@@ -33,6 +33,18 @@ Run in PowerShell from this folder:
 
 Open http://localhost:8501. The dashboard reads completed results; it does not retrain on each interaction.
 
+Scouting capacity is an exact **number of trial plots**, defaulting to 10. Each selected row represents a research plot, not a whole farm field. The control is capped at the selected site's plot count, and the table, CSV download, precision and recall use that same count. The original batch scouting exports retain their configured 10% budget.
+
+## Audit yields against the source and USDA context
+
+```powershell
+.\.venv\Scripts\python.exe -m maize.yield_audit
+```
+
+This checks saved prediction labels and feature labels against the original plot CSV, verifies identical evaluation cohorts, and exports `outputs/yield_audit/yield_audit.md`, `site_comparison.csv`, treatment summaries, source details and input hashes. The audit is read-only with respect to forecasts and fitted models. It accepts `--data-root` and `--output`.
+
+Both dashboard evaluation views include an expandable comparison of actual research-plot yield, predicted yield, model bias and USDA 2022 state yield. USDA numbers are retrospective context only, never training inputs or rescaling targets. Scouting deliberately selects low predictions, and the source trial means are themselves below the state averages. There are also substantial site-specific model errors. Negative forecasts at early cutoffs are flagged as invalid estimates. The audit uses ordinary plot means; the hybrid-selection analysis uses treatment-balanced site summaries.
+
 ## Reproduce the pipeline
 
 The project-local `.venv` has the dependencies installed. For a new machine, create a Python 3.12 environment and install `requirements-lock.txt` (exact tested versions) or `requirements.txt` (compatible ranges).
