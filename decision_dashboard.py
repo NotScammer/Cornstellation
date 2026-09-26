@@ -8,6 +8,8 @@ import streamlit as st
 from maize.branding import render_team_branding
 from maize.decision_brief import warning_queue, MODEL_LABELS
 from maize.modeling import scouting_metrics
+from maize.scouting_plan import plan_tables
+from maize.site_checks import render_site_checks
 
 ROOT = Path(__file__).resolve().parent
 OUT = Path(os.environ.get("MAIZE_OUTPUT", str(ROOT / "outputs")))
@@ -23,7 +25,7 @@ predictions = pd.read_csv(OUT / "held_out_predictions.csv")
 comparison = pd.read_csv(DATA / "model_comparison.csv")
 warnings = pd.read_csv(DATA / "warning_evaluation.csv")
 cutoff = st.sidebar.selectbox("Decision cutoff (days after planting)", [75, 90, 60])
-site = st.sidebar.selectbox("Trial location", sorted(predictions.location.unique()))
+site = st.sidebar.selectbox("Trial location", sorted(predictions.location.unique()), key="decision_location")
 group = predictions.query("model == 'combined' and cutoff == @cutoff and location == @site")
 capacity = st.sidebar.number_input("Trial plots to inspect", 1, len(group), 10, key=f"decision_capacity_{site}")
 queue = warning_queue(group, int(capacity))
@@ -33,6 +35,9 @@ for filename, label in [("FieldSignal_IoT4Ag_pitch.pptx", "Download five-slide p
         st.sidebar.download_button(label, file.read_bytes(), file_name=file.name)
 now, evidence, trials = st.tabs(["Scouting & warning", "What imagery adds · evaluation", "Next replicated trials · observed"])
 with now:
+    _, site_priorities = plan_tables(predictions, cutoff)
+    render_site_checks(site_priorities, cutoff, "decision_location", "decision_sites")
+    st.caption("Site comparison uses the illustrative forecast-gap rule. The inspection list below keeps the evaluated lowest-yield-first order.")
     st.subheader("Inspect the lowest predicted yields first")
     st.write("Candidate rule: from day 75, flag the lowest predicted 20% within each location. Inspect in predicted-yield order up to your capacity. A flag prompts a human check; it does not diagnose a cause or prescribe a treatment.")
     if cutoff == 60:

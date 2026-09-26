@@ -5,6 +5,7 @@ import pandas as pd
 import streamlit as st
 from maize.branding import render_team_branding
 from maize.scouting_plan import plan_tables, hybrid_watch
+from maize.site_checks import render_site_checks
 
 ROOT = Path(__file__).resolve().parent
 OUT = Path(os.environ.get("MAIZE_OUTPUT", str(ROOT / "outputs")))
@@ -18,6 +19,7 @@ location = st.sidebar.selectbox("Plan location", sites.location.tolist(), key=f"
 local = plots.loc[plots.location.eq(location)]
 capacity = st.sidebar.number_input("Plots in this plan", 1, len(local), 10, key=f"plan_capacity_{location}")
 site = sites.loc[sites.location.eq(location)].iloc[0]
+render_site_checks(sites, cutoff, f"plan_location_{cutoff}", "plan_sites")
 st.subheader(f"Site priority #{int(site.site_priority)}: {location}")
 a,b = st.columns(2)
 a.metric("Candidate anomalies", int(site.anomalies), help="Bottom 20% forecast and at least a 20-percentile-point drop from the agronomy model.")
@@ -38,9 +40,9 @@ for _, plot in selected.head(3).iterrows():
         left,right = st.columns(2)
         with left:
             st.write(f"**Predicted yield:** {plot.predicted_yield:.1f} bu/ac")
-            st.write(f"**Predicted performance:** {plot.forecast_percentile:.0f}th percentile within site")
+            st.write(f"**Predicted performance:** percentile {plot.forecast_percentile:.1f} within site")
             expected = "High" if plot.expectation_percentile >= 75 else "Middle" if plot.expectation_percentile >= 25 else "Low"
-            st.write(f"**Agronomic expectation:** {expected} ({plot.expectation_percentile:.0f}th percentile)")
+            st.write(f"**Agronomic expectation:** {expected} (percentile {plot.expectation_percentile:.1f})")
         with right:
             if plot.observation_count < 2 or pd.isna(plot.delta_ndvi):
                 trajectory = "Insufficient observations"
