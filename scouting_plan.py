@@ -16,7 +16,7 @@ cutoff = st.sidebar.selectbox("Plan cutoff (days after planting)", [75,90], key=
 predictions = pd.read_csv(OUT / "held_out_predictions.csv")
 plots, sites = plan_tables(predictions, cutoff)
 capacity = st.sidebar.number_input("Plots per site to include", 1, int(sites.plots.max()), 10, key="plan_capacity")
-render_site_checks(sites, cutoff, plots, int(capacity), "plan_sites", order="gap")
+render_site_checks(sites, cutoff, plots, int(capacity), "plan_sites", order="gap", output=OUT)
 
 st.subheader("Hybrid watch")
 st.caption("Forecast watch across all five sites at the selected cutoff. These labels describe model rankings, not observed outcomes or proven adaptation.")

@@ -1,6 +1,7 @@
 """Plain-language, cross-site inspection overview using the existing candidate rule."""
 import pandas as pd
 import streamlit as st
+from maize.scouting_trip import render_scouting_trip
 
 
 def render_plot_summaries(selected, order):
@@ -31,7 +32,7 @@ def render_plot_summaries(selected, order):
     st.caption("Action: ground-truth crop condition and record visible stress or field differences. Confidence: Not calibrated.")
 
 
-def render_site_checks(sites, cutoff, plots, capacity, key_prefix, order="gap"):
+def render_site_checks(sites, cutoff, plots, capacity, key_prefix, order="gap", output=None):
     st.subheader("Which sites need checks first?")
     st.write("Expand a site to see which plots to check and download its inspection list.")
     if cutoff < 75:
@@ -63,6 +64,8 @@ def render_site_checks(sites, cutoff, plots, capacity, key_prefix, order="gap"):
             render_plot_summaries(selected, order)
             st.caption(f"Showing {min(3, len(selected))} plot summaries; download includes {len(selected)} plots. Capacity is applied separately to each site.")
             st.download_button(f"Download {name} inspection list", selected.to_csv(index=False).encode(), file_name=f"inspection_{row.location}_day{cutoff}_{len(selected)}plots_{order}.csv", mime="text/csv", key=f"{key_prefix}_{row.location}_{cutoff}_list")
+            if output is not None:
+                render_scouting_trip(selected, output, f"{key_prefix}_{row.location}_trip")
     st.caption("A lower position means fewer flags under this rule; it does not mean a site is free of problems.")
     export = sites[["site_priority", "location", "anomalies", "plots", "anomaly_rate", "missing_images"]].copy()
     export["anomaly_rate"] = (export.anomaly_rate * 100).round(2)

@@ -27,7 +27,7 @@ def test_dashboard_filters_and_download_contents(monkeypatch):
     assert not app.exception
     app.selectbox[0].select("MOValley")
     app.select_slider[0].set_value(60)
-    app.number_input[0].set_value(20)
+    app.number_input(key="scouting_capacity_count").set_value(20)
     app.run()
     assert not app.exception
     assert any("no usable satellite" in w.value for w in app.warning)
@@ -49,9 +49,9 @@ def test_dashboard_filters_and_download_contents(monkeypatch):
     assert not app.exception
     assert not any("no usable satellite" in w.value for w in app.warning)
     app.selectbox[0].select("Ames").run()
-    app.number_input[0].set_value(487).run()
+    app.number_input(key="scouting_capacity_count").set_value(487).run()
     assert len(app.dataframe[0].value) == 487
     app.selectbox[0].select("MOValley").run()
     assert not app.exception
-    assert app.number_input[0].value == 163
+    assert app.number_input(key="scouting_capacity_count").value == 163
     assert len(app.dataframe[0].value) == 163

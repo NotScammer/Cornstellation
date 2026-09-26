@@ -10,6 +10,7 @@ import streamlit as st
 from maize.modeling import scout_table, scouting_metrics
 from maize.branding import render_team_branding
 from maize.yield_audit import render_yield_audit
+from maize.scouting_trip import render_scouting_trip
 
 st.set_page_config(page_title="FieldSignal by Cornstellation | Maize scouting", page_icon="🌽", layout="wide")
 st.markdown("""
@@ -85,6 +86,7 @@ with scouting_tab:
     st.dataframe(selected[display_columns].rename(columns=display_names), hide_index=True, width="stretch")
     st.download_button("Download scouting brief", selected.to_csv(index=False).encode("utf-8"),
                        file_name=f"scouting_{location}_day{cutoff}.csv", mime="text/csv")
+    render_scouting_trip(selected, output, f"secondary_{location}_trip")
     with st.expander("View all ranked plots"):
         st.dataframe(table[display_columns].rename(columns=display_names), hide_index=True, width="stretch")
     st.caption("Missing changes indicate fewer than two usable observations. Yield is standardized to 15.5% grain moisture.")

@@ -10,6 +10,7 @@ from maize.decision_brief import warning_queue, MODEL_LABELS
 from maize.modeling import scouting_metrics
 from maize.scouting_plan import plan_tables
 from maize.site_checks import render_site_checks
+from maize.scouting_trip import render_scouting_trip
 
 ROOT = Path(__file__).resolve().parent
 OUT = Path(os.environ.get("MAIZE_OUTPUT", str(ROOT / "outputs")))
@@ -36,7 +37,7 @@ for filename, label in [("FieldSignal_IoT4Ag_pitch.pptx", "Download five-slide p
 now, evidence, trials = st.tabs(["Scouting & warning", "What imagery adds · evaluation", "Next replicated trials · observed"])
 with now:
     site_plots, site_priorities = plan_tables(predictions, cutoff)
-    render_site_checks(site_priorities, cutoff, site_plots, int(capacity), "decision_sites", order="yield")
+    render_site_checks(site_priorities, cutoff, site_plots, int(capacity), "decision_sites", order="yield", output=OUT)
     with st.expander(f"Detailed inspection table · {site}", expanded=False):
         st.caption("Site comparison uses the illustrative forecast-gap rule. The inspection list below keeps the evaluated lowest-yield-first order.")
         st.subheader("Inspect the lowest predicted yields first")
@@ -53,6 +54,7 @@ with now:
         fields = {"priority":"Priority", "plot_id":"Plot", "genotype":"Hybrid", "predicted_yield":"Predicted yield (bu/ac)", "warning_flag":"Flagged", "delta_ndvi":"Recent NDVI change", "image_age_days":"Image age (days)", "prediction_date":"Replay date"}
         st.dataframe(selected[list(fields)].rename(columns=fields).round(3), hide_index=True, width="stretch")
         st.download_button("Download inspection list", selected.to_csv(index=False).encode(), file_name=f"inspection_{site}_day{cutoff}_{capacity}plots.csv", mime="text/csv")
+        render_scouting_trip(selected, OUT, f"decision_detail_{site}_trip")
         st.caption(f"Missing imagery: {int(queue.missing_imagery.sum())} of {len(queue)} plots. Image age and observation count should inform inspection planning.")
         if queue.invalid_negative_prediction.any():
             st.warning("Some forecasts are negative and physically implausible. They indicate model failure, not a literal yield estimate.")
