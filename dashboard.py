@@ -15,7 +15,10 @@ from maize.yield_audit import render_yield_audit
 ROOT = Path(__file__).resolve().parent
 OUTPUT = Path(os.environ.get("MAIZE_OUTPUT", str(ROOT / "outputs")))
 st.set_page_config(page_title="FieldSignal by Cornstellation | Across environments", page_icon="🌽", layout="wide")
-view = st.sidebar.radio("Workspace", ["Hybrid performance", "Scouting (secondary)"])
+view = st.sidebar.radio("Workspace", ["Decision brief", "Hybrid performance", "Scouting (secondary)"])
+if view == "Decision brief":
+    runpy.run_path(str(ROOT / "decision_dashboard.py"), run_name="__main__")
+    st.stop()
 if view == "Scouting (secondary)":
     runpy.run_path(str(ROOT / "scouting.py"), run_name="__main__")
     st.stop()

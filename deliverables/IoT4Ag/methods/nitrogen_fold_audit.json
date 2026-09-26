@@ -1,0 +1,317 @@
+[
+  {
+    "cutoff": 60,
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 60,
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 60,
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 60,
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 60,
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 75,
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 75,
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 75,
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 75,
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 75,
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 90,
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 90,
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 90,
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 90,
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  },
+  {
+    "cutoff": 90,
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "features": [
+      "poundsOfNitrogenPerAcre"
+    ],
+    "parameters": {
+      "iterations": 400,
+      "depth": 5,
+      "learning_rate": 0.05,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4
+    }
+  }
+]

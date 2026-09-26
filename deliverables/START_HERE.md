@@ -1,5 +1,13 @@
 # FieldSignal hackathon package
 
+## Current IoT4Ag scope — start here
+
+Use **`IoT4Ag/FieldSignal_IoT4Ag_pitch.pptx`** for the current five-slide presentation and **`IoT4Ag/FieldSignal_IoT4Ag_brief.pdf`** as the one-page handout. `IoT4Ag/FieldSignal_scope_and_demo.md` compiles the scope, evidence, demo sequence, limitations and judge Q&A. Speaker notes and `IoT4Ag/talk_track.md` contain the three-minute narration. `IoT4Ag/tables/` and `IoT4Ag/figures/` contain reusable evidence.
+
+The current dashboard opens **Decision brief**: day 75, Ames, 10 trial plots. Show the inspection list, then the imagery comparison and observed shortlist. The pitch connects scouting today to hybrid selection for the next replicated trials. It claims 2022 spatial transfer only; 2023 is the next test.
+
+The material below describes the earlier hybrid-focused presentation, retained as supporting background.
+
 **Positioning:** Satellite-informed forecasts for better hybrid selection across environments.
 
 ## Present

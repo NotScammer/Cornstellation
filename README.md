@@ -2,7 +2,11 @@
 
 ## Hackathon presentation package
 
-The primary experience now compares hybrid performance across environments. Open `deliverables/FieldSignal_pitch.pptx` for the five-slide pitch, `deliverables/FieldSignal_findings.pdf` for the one-page brief, and `deliverables/FieldSignal_talk_track.md` for the approximately three-minute narration. The deck includes editable charts, an editable heatmap table, and speaker notes. Reusable PNG/SVG evidence figures and CSV comparisons are in `deliverables/figures` and `deliverables/tables`.
+The current presentation package is **`deliverables/IoT4Ag/`**. Start with `FieldSignal_scope_and_demo.md`; present `FieldSignal_IoT4Ag_pitch.pptx` and share `FieldSignal_IoT4Ag_brief.pdf`. The five-slide deck includes editable charts, an editable shortlist table and a three-minute talk track in speaker notes. Three PNG/SVG figures, CSV evidence and a rehearsal guide accompany it. Earlier presentation files are retained as background.
+
+The default **Decision brief** connects a day-75 inspection list, a fixed bottom-20% warning screen, a nitrogen-only/agronomy/imagery comparison, and the observed hybrid shortlist for future trials. The warning is a candidate screening rule, not a diagnosis. All evidence concerns five sites in 2022; cross-season validation remains pending.
+
+Reproduce the nitrogen-only comparison and decision evidence with `.venv\Scripts\python.exe -m maize.decision_brief`. Add `--reuse-nitrogen` to reuse saved predictions. Outputs are in `outputs/decision_brief/`; no harvest label enters the warning queue. Capacity is an integer number of trial plots, default 10 per site. Evaluation separates precision for limited visits from recall of all actual bottom-20% plots. Nitrogen-only ties use plot ID and should not be marketed as a robust fold-improvement.
 
 The dashboard separates observed harvest evidence from held-out forecasts. The original scouting interface remains available through **Workspace > Scouting (secondary)**, or directly by running Streamlit with `scouting.py`.
 

@@ -90,6 +90,7 @@ def test_primary_dashboard_separates_observed_forecasts_and_scouting():
     if not (root / "outputs/broad_performance/claims.json").exists():
         pytest.skip("Run broad-performance analysis first")
     app = AppTest.from_file(str(root / "dashboard.py"), default_timeout=30).run()
+    app.radio[0].set_value("Hybrid performance").run()
     assert not app.exception
     assert any("OBSERVED VIEW" in x.value for x in app.info)
     expected = pd.read_csv(root / "outputs/broad_performance/observed_hybrids.csv")

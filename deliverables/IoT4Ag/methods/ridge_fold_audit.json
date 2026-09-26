@@ -1,0 +1,962 @@
+[
+  {
+    "cutoff": 60,
+    "model": "ridge_agronomy",
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 107.07487542100719
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 105.90494298673704
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 98.59499999614825
+      }
+    ]
+  },
+  {
+    "cutoff": 60,
+    "model": "ridge_combined",
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 105.29849686608522
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 94.40078983522855
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 80.87482010674805
+      }
+    ]
+  },
+  {
+    "cutoff": 60,
+    "model": "ridge_agronomy",
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 580.06166727806
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 371.36575973039777
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 88.20796851027939
+      }
+    ]
+  },
+  {
+    "cutoff": 60,
+    "model": "ridge_combined",
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 230.96045265048315
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 201.73479967379433
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 136.74072019247
+      }
+    ]
+  },
+  {
+    "cutoff": 60,
+    "model": "ridge_agronomy",
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 39.291687728773525
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 38.69664462663856
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 36.32920482409136
+      }
+    ]
+  },
+  {
+    "cutoff": 60,
+    "model": "ridge_combined",
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 142.4003315816954
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 81.10322893689336
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 48.433686144385234
+      }
+    ]
+  },
+  {
+    "cutoff": 60,
+    "model": "ridge_agronomy",
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 320.76287336953914
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 219.6090707696872
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 81.54944490025515
+      }
+    ]
+  },
+  {
+    "cutoff": 60,
+    "model": "ridge_combined",
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 144.4486157172172
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 149.0669978939854
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 131.49666896749864
+      }
+    ]
+  },
+  {
+    "cutoff": 60,
+    "model": "ridge_agronomy",
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 77.992546845917
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 77.67186331309729
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 75.36766967323848
+      }
+    ]
+  },
+  {
+    "cutoff": 60,
+    "model": "ridge_combined",
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 140.28094717014574
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 115.79343031346907
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 81.99743156703505
+      }
+    ]
+  },
+  {
+    "cutoff": 75,
+    "model": "ridge_agronomy",
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 107.07487542100719
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 105.90494298673704
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 98.59499999614825
+      }
+    ]
+  },
+  {
+    "cutoff": 75,
+    "model": "ridge_combined",
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 88.03610396469911
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 78.52635313180114
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 64.67350233073392
+      }
+    ]
+  },
+  {
+    "cutoff": 75,
+    "model": "ridge_agronomy",
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 580.06166727806
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 371.36575973039777
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 88.20796851027939
+      }
+    ]
+  },
+  {
+    "cutoff": 75,
+    "model": "ridge_combined",
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 421.75345097958467
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 253.52605741072816
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 99.88886162650667
+      }
+    ]
+  },
+  {
+    "cutoff": 75,
+    "model": "ridge_agronomy",
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 39.291687728773525
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 38.69664462663856
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 36.32920482409136
+      }
+    ]
+  },
+  {
+    "cutoff": 75,
+    "model": "ridge_combined",
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 10,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 169.5090911755644
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 41.87563414972672
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 51.73433360726453
+      }
+    ]
+  },
+  {
+    "cutoff": 75,
+    "model": "ridge_agronomy",
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 320.76287336953914
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 219.6090707696872
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 81.54944490025515
+      }
+    ]
+  },
+  {
+    "cutoff": 75,
+    "model": "ridge_combined",
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 215.69665978518918
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 117.64884249836898
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 64.9532892651851
+      }
+    ]
+  },
+  {
+    "cutoff": 75,
+    "model": "ridge_agronomy",
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 77.992546845917
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 77.67186331309729
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 75.36766967323848
+      }
+    ]
+  },
+  {
+    "cutoff": 75,
+    "model": "ridge_combined",
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 209.76007848885172
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 67.97850133265601
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 41.593835114868966
+      }
+    ]
+  },
+  {
+    "cutoff": 90,
+    "model": "ridge_agronomy",
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 107.07487542100719
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 105.90494298673704
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 98.59499999614825
+      }
+    ]
+  },
+  {
+    "cutoff": 90,
+    "model": "ridge_combined",
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 67.75089327705722
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 52.57700254011727
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 43.71523036360887
+      }
+    ]
+  },
+  {
+    "cutoff": 90,
+    "model": "ridge_agronomy",
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 580.06166727806
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 371.36575973039777
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 88.20796851027939
+      }
+    ]
+  },
+  {
+    "cutoff": 90,
+    "model": "ridge_combined",
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 325.9239776117264
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 232.70817304052397
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 91.37143413662491
+      }
+    ]
+  },
+  {
+    "cutoff": 90,
+    "model": "ridge_agronomy",
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 39.291687728773525
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 38.69664462663856
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 36.32920482409136
+      }
+    ]
+  },
+  {
+    "cutoff": 90,
+    "model": "ridge_combined",
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 90.07278453265751
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 47.95547620189697
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 37.010011011211965
+      }
+    ]
+  },
+  {
+    "cutoff": 90,
+    "model": "ridge_agronomy",
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 320.76287336953914
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 219.6090707696872
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 81.54944490025515
+      }
+    ]
+  },
+  {
+    "cutoff": 90,
+    "model": "ridge_combined",
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 182.32998876166673
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 128.733934764399
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 65.9773566845786
+      }
+    ]
+  },
+  {
+    "cutoff": 90,
+    "model": "ridge_agronomy",
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 77.992546845917
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 77.67186331309729
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 75.36766967323848
+      }
+    ]
+  },
+  {
+    "cutoff": 90,
+    "model": "ridge_combined",
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "inner_validation_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "chosen_alpha": 100,
+    "candidates": [
+      {
+        "alpha": 1,
+        "inner_site_mean_mae": 78.64708337709361
+      },
+      {
+        "alpha": 10,
+        "inner_site_mean_mae": 64.58561301307331
+      },
+      {
+        "alpha": 100,
+        "inner_site_mean_mae": 28.08748172866391
+      }
+    ]
+  }
+]

@@ -1,0 +1,343 @@
+{
+  "scope": "2022 historical replay - held-out-location predictions",
+  "plots": 2131,
+  "locations": 5,
+  "hybrids": 84,
+  "rule": "From day 75, flag the lowest predicted 20% within each site, then inspect plots in priority order up to capacity.",
+  "rule_status": "Fixed candidate screening rule; not tuned here, not validated for preventable stress or future seasons.",
+  "capacity": 10,
+  "overall": [
+    {
+      "cutoff": 60,
+      "model": "agronomy",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 72.12435116326003,
+      "rmse": 82.74669370244744,
+      "bias": -24.61441992951273,
+      "within_site_spearman": 0.19840240171121454,
+      "k": 50,
+      "target_n": 428,
+      "hits": 24,
+      "precision_at_k": 0.48,
+      "recall_at_k": 0.056074766355140186
+    },
+    {
+      "cutoff": 60,
+      "model": "combined",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 75.70446032064379,
+      "rmse": 88.30999517667561,
+      "bias": -28.508175251004786,
+      "within_site_spearman": 0.28633018305595875,
+      "k": 50,
+      "target_n": 428,
+      "hits": 30,
+      "precision_at_k": 0.6,
+      "recall_at_k": 0.07009345794392523
+    },
+    {
+      "cutoff": 60,
+      "model": "mean",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 55.104191627116194,
+      "rmse": 66.91219969281359,
+      "bias": 0.7416094256867581,
+      "within_site_spearman": null,
+      "k": 50,
+      "target_n": 428,
+      "hits": 7,
+      "precision_at_k": 0.14,
+      "recall_at_k": 0.016355140186915886
+    },
+    {
+      "cutoff": 60,
+      "model": "nitrogen",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 59.699070733499966,
+      "rmse": 71.85132999277867,
+      "bias": -2.3679142885730142,
+      "within_site_spearman": -0.13234662282069998,
+      "k": 50,
+      "target_n": 428,
+      "hits": 6,
+      "precision_at_k": 0.12,
+      "recall_at_k": 0.014018691588785047
+    },
+    {
+      "cutoff": 75,
+      "model": "agronomy",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 72.12435116326003,
+      "rmse": 82.74669370244744,
+      "bias": -24.61441992951273,
+      "within_site_spearman": 0.19840240171121454,
+      "k": 50,
+      "target_n": 428,
+      "hits": 24,
+      "precision_at_k": 0.48,
+      "recall_at_k": 0.056074766355140186
+    },
+    {
+      "cutoff": 75,
+      "model": "combined",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 45.48450119149681,
+      "rmse": 54.785405198245165,
+      "bias": -5.233008134048601,
+      "within_site_spearman": 0.31506335177603195,
+      "k": 50,
+      "target_n": 428,
+      "hits": 30,
+      "precision_at_k": 0.6,
+      "recall_at_k": 0.07009345794392523
+    },
+    {
+      "cutoff": 75,
+      "model": "mean",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 55.104191627116194,
+      "rmse": 66.91219969281359,
+      "bias": 0.7416094256867581,
+      "within_site_spearman": null,
+      "k": 50,
+      "target_n": 428,
+      "hits": 7,
+      "precision_at_k": 0.14,
+      "recall_at_k": 0.016355140186915886
+    },
+    {
+      "cutoff": 75,
+      "model": "nitrogen",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 59.699070733499966,
+      "rmse": 71.85132999277867,
+      "bias": -2.3679142885730142,
+      "within_site_spearman": -0.13234662282069998,
+      "k": 50,
+      "target_n": 428,
+      "hits": 6,
+      "precision_at_k": 0.12,
+      "recall_at_k": 0.014018691588785047
+    },
+    {
+      "cutoff": 90,
+      "model": "agronomy",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 72.12435116326003,
+      "rmse": 82.74669370244744,
+      "bias": -24.61441992951273,
+      "within_site_spearman": 0.19840240171121454,
+      "k": 50,
+      "target_n": 428,
+      "hits": 24,
+      "precision_at_k": 0.48,
+      "recall_at_k": 0.056074766355140186
+    },
+    {
+      "cutoff": 90,
+      "model": "combined",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 43.98072243457965,
+      "rmse": 53.37864091843423,
+      "bias": -3.524925004517477,
+      "within_site_spearman": 0.20550826638360906,
+      "k": 50,
+      "target_n": 428,
+      "hits": 31,
+      "precision_at_k": 0.62,
+      "recall_at_k": 0.07242990654205607
+    },
+    {
+      "cutoff": 90,
+      "model": "mean",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 55.104191627116194,
+      "rmse": 66.91219969281359,
+      "bias": 0.7416094256867581,
+      "within_site_spearman": null,
+      "k": 50,
+      "target_n": 428,
+      "hits": 7,
+      "precision_at_k": 0.14,
+      "recall_at_k": 0.016355140186915886
+    },
+    {
+      "cutoff": 90,
+      "model": "nitrogen",
+      "location": "Overall",
+      "n": 2131,
+      "mae": 59.699070733499966,
+      "rmse": 71.85132999277867,
+      "bias": -2.3679142885730142,
+      "within_site_spearman": -0.13234662282069998,
+      "k": 50,
+      "target_n": 428,
+      "hits": 6,
+      "precision_at_k": 0.12,
+      "recall_at_k": 0.014018691588785047
+    }
+  ],
+  "warning": [
+    {
+      "cutoff": 75,
+      "k": 428,
+      "target_n": 428,
+      "hits": 163,
+      "precision": 0.3808411214953271,
+      "recall": 0.3808411214953271
+    },
+    {
+      "cutoff": 90,
+      "k": 428,
+      "target_n": 428,
+      "hits": 141,
+      "precision": 0.3294392523364486,
+      "recall": 0.3294392523364486
+    }
+  ],
+  "ranking": [
+    {
+      "cutoff": 60,
+      "model": "agronomy",
+      "spearman": 0.39600075149568326,
+      "top10_overlap": 3.2
+    },
+    {
+      "cutoff": 60,
+      "model": "combined",
+      "spearman": 0.48210607340712136,
+      "top10_overlap": 4.4
+    },
+    {
+      "cutoff": 60,
+      "model": "mean",
+      "spearman": null,
+      "top10_overlap": null
+    },
+    {
+      "cutoff": 60,
+      "model": "nitrogen",
+      "spearman": null,
+      "top10_overlap": null
+    },
+    {
+      "cutoff": 75,
+      "model": "agronomy",
+      "spearman": 0.39600075149568326,
+      "top10_overlap": 3.2
+    },
+    {
+      "cutoff": 75,
+      "model": "combined",
+      "spearman": 0.5836523197555588,
+      "top10_overlap": 4.0
+    },
+    {
+      "cutoff": 75,
+      "model": "mean",
+      "spearman": null,
+      "top10_overlap": null
+    },
+    {
+      "cutoff": 75,
+      "model": "nitrogen",
+      "spearman": null,
+      "top10_overlap": null
+    },
+    {
+      "cutoff": 90,
+      "model": "agronomy",
+      "spearman": 0.39600075149568326,
+      "top10_overlap": 3.2
+    },
+    {
+      "cutoff": 90,
+      "model": "combined",
+      "spearman": 0.4512858421298952,
+      "top10_overlap": 4.6
+    },
+    {
+      "cutoff": 90,
+      "model": "mean",
+      "spearman": null,
+      "top10_overlap": null
+    },
+    {
+      "cutoff": 90,
+      "model": "nitrogen",
+      "spearman": null,
+      "top10_overlap": null
+    }
+  ],
+  "cases": [
+    {
+      "plot_id": "Ames|4233|19|5",
+      "location": "Ames",
+      "experiment": "4233",
+      "range": 19,
+      "row": 5,
+      "genotype": "WF9 X H95",
+      "cutoff": 75,
+      "prediction_date": "2022-08-06",
+      "predicted_yield": 73.98938229690955,
+      "delta_ndvi": 0.0111257600456908,
+      "image_age_days": 14.0,
+      "observation_count": 2,
+      "missing_imagery": 0,
+      "priority": 1,
+      "selected": true,
+      "warning_flag": true,
+      "recent_ndvi_decline": false,
+      "invalid_negative_prediction": false,
+      "action": "Inspect for possible underperformance",
+      "yieldPerAcre": 66.18,
+      "actual_bottom_20": true,
+      "example": "Caught within 10 visits",
+      "nitrogen": 106.54813744498418,
+      "agronomy": 26.342906198248173
+    },
+    {
+      "plot_id": "Ames|4232|24|20",
+      "location": "Ames",
+      "experiment": "4232",
+      "range": 24,
+      "row": 20,
+      "genotype": "WF9 X H95",
+      "cutoff": 75,
+      "prediction_date": "2022-08-05",
+      "predicted_yield": 89.7209258243245,
+      "delta_ndvi": -0.0007845761477223,
+      "image_age_days": 13.0,
+      "observation_count": 2,
+      "missing_imagery": 0,
+      "priority": 13,
+      "selected": false,
+      "warning_flag": true,
+      "recent_ndvi_decline": true,
+      "invalid_negative_prediction": false,
+      "action": "Inspect for possible underperformance",
+      "yieldPerAcre": 27.3,
+      "actual_bottom_20": true,
+      "example": "Missed within 10 visits",
+      "nitrogen": 125.13320277721698,
+      "agronomy": 33.133801439991075
+    }
+  ],
+  "tie_rule": "Prediction then plot ID; nitrogen-only predictions tie for plots at the same nitrogen rate. Top-K performance therefore depends on deterministic tie-breaking.",
+  "inputs_sha256": {
+    "outputs\\features.parquet": "2f4ad5e2d550e548419540598ceaa2100eaa52e04ad6a4ea3a9305db4bbb9b5f",
+    "outputs\\held_out_predictions.csv": "7b547a400bb33edca4dd7f44470ac8c59501dd469d7ceb34fcafdf3a98358f66",
+    "outputs\\decision_brief\\nitrogen_predictions.csv": "abd67645e6fbfc81d853c6ec64d7665c845fbeb050bd73b5ecf27465f249ec03"
+  }
+}
