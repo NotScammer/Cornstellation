@@ -1,0 +1,31 @@
+{
+  "data_root": "C:\\Users\\sonpo\\Desktop\\Hackathon\\2022\\DataPublication_final",
+  "plot_records": 2291,
+  "eligible_training_plots": 2131,
+  "invalid_plot_identifiers": 16,
+  "satellite_images": 14562,
+  "image_errors": 0,
+  "unmatched_or_undated_images": 912,
+  "plots_without_usable_images": 16,
+  "missing_planting_dates": 134,
+  "missing_yields": 160,
+  "metadata_conflicts": 0,
+  "band_mapping": {
+    "red": 1,
+    "green": 2,
+    "blue": 3,
+    "nir": 4,
+    "red_edge": 5,
+    "deep_blue": 6
+  },
+  "band_mapping_source": "Supplied Documentation.ipynb satelliteimage function; README list is not interpreted as band order",
+  "key_normalizations": [
+    "Missouri Valley -> MOValley",
+    "MOValley experiment Hyrbrids -> Hybrids"
+  ],
+  "cutoffs": [
+    60,
+    75,
+    90
+  ]
+}

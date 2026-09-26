@@ -1,0 +1,12 @@
+numpy>=2.0,<3
+pandas>=2.2,<4
+pyarrow>=18,<26
+plotly>=5.24,<8
+openpyxl>=3.1,<4
+rasterio>=1.4,<2
+catboost>=1.2,<2
+scikit-learn>=1.5,<2
+scipy>=1.14,<2
+matplotlib>=3.9,<4
+streamlit>=1.40,<2
+pytest>=8,<10

@@ -1,0 +1,19 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.toml text eol=lf
+*.png binary
+*.xlsx binary
+*.pdf binary
+*.pptx binary
+*.zip binary
+*.parquet binary
+*.cbm binary
+
+# Preserve source data and generated results byte-for-byte for provenance hashes.
+2022/** -text
+outputs/** -text
+deliverables/** -text

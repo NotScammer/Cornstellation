@@ -1,0 +1,161 @@
+index,qrCode,location,irrigationProvided,nitrogenTreatment,poundsOfNitrogenPerAcre,experiment,plotLength,block,row,range,plotNumber,genotype,plantingDate,totalStandCount,daysToAnthesis,GDDToAnthesis,yieldPerAcre,invalid_plot_key,plot_id,planting_doy,missing_planting_date,missing_yield
+8,,Ames,,,0,4231,,,2,23,,,,,,,,False,Ames|4231|23|2,,True,True
+11,,Ames,,,0,4231,,,2,31,,,,,,,,False,Ames|4231|31|2,,True,True
+0,,Ames,,,0,4231,,,3,4,,,,,,,,False,Ames|4231|4|3,,True,True
+9,,Ames,,,0,4231,,,3,29,,,,,,,,False,Ames|4231|29|3,,True,True
+12,,Ames,,,0,4231,,,3,31,,,,,,,,False,Ames|4231|31|3,,True,True
+7,,Ames,,,0,4233,,,3,20,,,,,,,,False,Ames|4233|20|3,,True,True
+11,,Ames,,,0,4233,,,3,24,,,,,,,,False,Ames|4233|24|3,,True,True
+13,,Ames,,,0,4231,,,4,31,,,,,,,,False,Ames|4231|31|4,,True,True
+0,,Ames,,,0,4233,,,4,5,,,,,,,,False,Ames|4233|5|4,,True,True
+3,,Ames,,,0,4233,,,4,10,,,,,,,,False,Ames|4233|10|4,,True,True
+14,,Ames,,,0,4231,,,5,31,,,,,,,,False,Ames|4231|31|5,,True,True
+5,,Ames,,,0,4233,,,5,18,,,,,,,,False,Ames|4233|18|5,,True,True
+1,,Ames,,,0,4231,,,6,4,,,,,,,,False,Ames|4231|4|6,,True,True
+2,,Ames,,,0,4231,,,6,7,,,,,,,,False,Ames|4231|7|6,,True,True
+3,,Ames,,,0,4231,,,6,12,,,,,,,,False,Ames|4231|12|6,,True,True
+4,,Ames,,,0,4231,,,6,16,,,,,,,,False,Ames|4231|16|6,,True,True
+6,,Ames,,,0,4231,,,6,22,,,,,,,,False,Ames|4231|22|6,,True,True
+15,,Ames,,,0,4231,,,6,31,,,,,,,,False,Ames|4231|31|6,,True,True
+5,,Ames,,,0,4231,,,7,16,,,,,,,,False,Ames|4231|16|7,,True,True
+7,,Ames,,,0,4231,,,7,22,,,,,,,,False,Ames|4231|22|7,,True,True
+10,,Ames,,,0,4231,,,7,30,,,,,,,,False,Ames|4231|30|7,,True,True
+16,,Ames,,,0,4231,,,7,31,,,,,,,,False,Ames|4231|31|7,,True,True
+9,,Ames,,,0,4233,,,7,22,,,,,,,,False,Ames|4233|22|7,,True,True
+4,,Ames,,,0,4233,,,8,14,,,,,,,,False,Ames|4233|14|8,,True,True
+6,,Ames,,,0,4233,,,8,18,,,,,,,,False,Ames|4233|18|8,,True,True
+8,,Ames,,,0,4233,,,8,20,,,,,,,,False,Ames|4233|20|8,,True,True
+1,,Ames,,,0,4233,,,9,5,,,,,,,,False,Ames|4233|5|9,,True,True
+2,,Ames,,,0,4233,,,9,8,,,,,,,,False,Ames|4233|8|9,,True,True
+10,,Ames,,,0,4233,,,9,22,,,,,,,,False,Ames|4233|22|9,,True,True
+12,,Ames,,,0,4233,,,9,24,,,,,,,,False,Ames|4233|24|9,,True,True
+8,,Ames,,,0,4232,,,17,17,,,,,,,,False,Ames|4232|17|17,,True,True
+13,,Ames,,,0,4232,,,17,31,,,,,,,,False,Ames|4232|31|17,,True,True
+2,,Ames,,,0,4232,,,18,4,,,,,,,,False,Ames|4232|4|18,,True,True
+4,,Ames,,,0,4232,,,18,7,,,,,,,,False,Ames|4232|7|18,,True,True
+5,,Ames,,,0,4232,,,18,12,,,,,,,,False,Ames|4232|12|18,,True,True
+14,,Ames,,,0,4232,,,18,31,,,,,,,,False,Ames|4232|31|18,,True,True
+15,,Ames,,,0,4232,,,19,31,,,,,,,,False,Ames|4232|31|19,,True,True
+9,,Ames,,,0,4232,,,20,18,,,,,,,,False,Ames|4232|18|20,,True,True
+11,,Ames,,,0,4232,,,20,25,,,,,,,,False,Ames|4232|25|20,,True,True
+16,,Ames,,,0,4232,,,20,31,,,,,,,,False,Ames|4232|31|20,,True,True
+0,,Ames,,,0,4232,,,21,2,,,,,,,,False,Ames|4232|2|21,,True,True
+1,,Ames,,,0,4232,,,21,3,,,,,,,,False,Ames|4232|3|21,,True,True
+3,,Ames,,,0,4232,,,21,4,,,,,,,,False,Ames|4232|4|21,,True,True
+6,,Ames,,,0,4232,,,21,16,,,,,,,,False,Ames|4232|16|21,,True,True
+10,,Ames,,,0,4232,,,21,24,,,,,,,,False,Ames|4232|24|21,,True,True
+17,,Ames,,,0,4232,,,21,31,,,,,,,,False,Ames|4232|31|21,,True,True
+7,,Ames,,,0,4232,,,22,16,,,,,,,,False,Ames|4232|16|22,,True,True
+12,,Ames,,,0,4232,,,22,30,,,,,,,,False,Ames|4232|30|22,,True,True
+18,,Ames,,,0,4232,,,22,31,,,,,,,,False,Ames|4232|31|22,,True,True
+5,,Crawfordsville,,,0,4352,,,2,9,,,,,,,,False,Crawfordsville|4352|9|2,,True,True
+8,,Crawfordsville,,,0,4352,,,2,11,,,,,,,,False,Crawfordsville|4352|11|2,,True,True
+9,,Crawfordsville,,,0,4352,,,2,14,,,,,,,,False,Crawfordsville|4352|14|2,,True,True
+0,,Crawfordsville,,,0,4352,,,3,2,,,,,,,,False,Crawfordsville|4352|2|3,,True,True
+2,,Crawfordsville,,,0,4352,,,3,5,,,,,,,,False,Crawfordsville|4352|5|3,,True,True
+11,,Crawfordsville,,,0,4352,,,3,21,,,,,,,,False,Crawfordsville|4352|21|3,,True,True
+6,,Crawfordsville,,,0,4352,,,4,10,,,,,,,,False,Crawfordsville|4352|10|4,,True,True
+1,,Crawfordsville,,,0,4352,,,5,2,,,,,,,,False,Crawfordsville|4352|2|5,,True,True
+3,,Crawfordsville,,,0,4352,,,6,6,,,,,,,,False,Crawfordsville|4352|6|6,,True,True
+4,,Crawfordsville,,,0,4352,,,7,6,,,,,,,,False,Crawfordsville|4352|6|7,,True,True
+10,,Crawfordsville,,,0,4352,,,7,14,,,,,,,,False,Crawfordsville|4352|14|7,,True,True
+12,,Crawfordsville,,,0,4352,,,8,22,,,,,,,,False,Crawfordsville|4352|22|8,,True,True
+7,,Crawfordsville,,,0,4352,,,9,10,,,,,,,,False,Crawfordsville|4352|10|9,,True,True
+6,,Crawfordsville,,,0,4351,,,14,10,,,,,,,,False,Crawfordsville|4351|10|14,,True,True
+10,,Crawfordsville,,,0,4351,,,14,17,,,,,,,,False,Crawfordsville|4351|17|14,,True,True
+11,,Crawfordsville,,,0,4351,,,14,20,,,,,,,,False,Crawfordsville|4351|20|14,,True,True
+3,,Crawfordsville,,,0,4351,,,15,6,,,,,,,,False,Crawfordsville|4351|6|15,,True,True
+4,,Crawfordsville,,,0,4351,,,15,7,,,,,,,,False,Crawfordsville|4351|7|15,,True,True
+0,,Crawfordsville,,,0,4351,,,18,2,,,,,,,,False,Crawfordsville|4351|2|18,,True,True
+1,,Crawfordsville,,,0,4351,,,18,4,,,,,,,,False,Crawfordsville|4351|4|18,,True,True
+8,,Crawfordsville,,,0,4351,,,18,12,,,,,,,,False,Crawfordsville|4351|12|18,,True,True
+2,,Crawfordsville,,,0,4351,,,19,4,,,,,,,,False,Crawfordsville|4351|4|19,,True,True
+5,,Crawfordsville,,,0,4351,,,19,8,,,,,,,,False,Crawfordsville|4351|8|19,,True,True
+7,,Crawfordsville,,,0,4351,,,19,10,,,,,,,,False,Crawfordsville|4351|10|19,,True,True
+9,,Crawfordsville,,,0,4351,,,19,15,,,,,,,,False,Crawfordsville|4351|15|19,,True,True
+12,,Crawfordsville,,,0,4351,,,19,20,,,,,,,,False,Crawfordsville|4351|20|19,,True,True
+1,,Crawfordsville,,,0,4353,,,42,5,,,,,,,,False,Crawfordsville|4353|5|42,,True,True
+2,,Crawfordsville,,,0,4353,,,42,7,,,,,,,,False,Crawfordsville|4353|7|42,,True,True
+5,,Crawfordsville,,,0,4353,,,42,16,,,,,,,,False,Crawfordsville|4353|16|42,,True,True
+6,,Crawfordsville,,,0,4353,,,43,32,,,,,,,,False,Crawfordsville|4353|32|43,,True,True
+4,,Crawfordsville,,,0,4353,,,44,10,,,,,,,,False,Crawfordsville|4353|10|44,,True,True
+0,,Crawfordsville,,,0,4353,,,45,3,,,,,,,,False,Crawfordsville|4353|3|45,,True,True
+3,,Crawfordsville,,,0,4353,,,45,7,,,,,,,,False,Crawfordsville|4353|7|45,,True,True
+0,,Lincoln,,,0,hybrids,,,14,2,,,,,,,,False,Lincoln|hybrids|2|14,,True,True
+2,,Lincoln,,,0,hybrids,,,14,3,,,,,,,,False,Lincoln|hybrids|3|14,,True,True
+4,,Lincoln,,,0,hybrids,,,14,4,,,,,,,,False,Lincoln|hybrids|4|14,,True,True
+6,,Lincoln,,,0,hybrids,,,14,5,,,,,,,,False,Lincoln|hybrids|5|14,,True,True
+8,,Lincoln,,,0,hybrids,,,14,6,,,,,,,,False,Lincoln|hybrids|6|14,,True,True
+10,,Lincoln,,,0,hybrids,,,14,7,,,,,,,,False,Lincoln|hybrids|7|14,,True,True
+12,,Lincoln,,,0,hybrids,,,14,8,,,,,,,,False,Lincoln|hybrids|8|14,,True,True
+14,,Lincoln,,,0,hybrids,,,14,9,,,,,,,,False,Lincoln|hybrids|9|14,,True,True
+16,,Lincoln,,,0,hybrids,,,14,10,,,,,,,,False,Lincoln|hybrids|10|14,,True,True
+18,,Lincoln,,,0,hybrids,,,14,11,,,,,,,,False,Lincoln|hybrids|11|14,,True,True
+20,,Lincoln,,,0,hybrids,,,14,12,,,,,,,,False,Lincoln|hybrids|12|14,,True,True
+22,,Lincoln,,,0,hybrids,,,14,13,,,,,,,,False,Lincoln|hybrids|13|14,,True,True
+24,,Lincoln,,,0,hybrids,,,14,14,,,,,,,,False,Lincoln|hybrids|14|14,,True,True
+26,,Lincoln,,,0,hybrids,,,14,15,,,,,,,,False,Lincoln|hybrids|15|14,,True,True
+1,,Lincoln,,,0,hybrids,,,27,2,,,,,,,,False,Lincoln|hybrids|2|27,,True,True
+3,,Lincoln,,,0,hybrids,,,27,3,,,,,,,,False,Lincoln|hybrids|3|27,,True,True
+5,,Lincoln,,,0,hybrids,,,27,4,,,,,,,,False,Lincoln|hybrids|4|27,,True,True
+7,,Lincoln,,,0,hybrids,,,27,5,,,,,,,,False,Lincoln|hybrids|5|27,,True,True
+9,,Lincoln,,,0,hybrids,,,27,6,,,,,,,,False,Lincoln|hybrids|6|27,,True,True
+11,,Lincoln,,,0,hybrids,,,27,7,,,,,,,,False,Lincoln|hybrids|7|27,,True,True
+13,,Lincoln,,,0,hybrids,,,27,8,,,,,,,,False,Lincoln|hybrids|8|27,,True,True
+15,,Lincoln,,,0,hybrids,,,27,9,,,,,,,,False,Lincoln|hybrids|9|27,,True,True
+17,,Lincoln,,,0,hybrids,,,27,10,,,,,,,,False,Lincoln|hybrids|10|27,,True,True
+19,,Lincoln,,,0,hybrids,,,27,11,,,,,,,,False,Lincoln|hybrids|11|27,,True,True
+21,,Lincoln,,,0,hybrids,,,27,12,,,,,,,,False,Lincoln|hybrids|12|27,,True,True
+23,,Lincoln,,,0,hybrids,,,27,13,,,,,,,,False,Lincoln|hybrids|13|27,,True,True
+25,,Lincoln,,,0,hybrids,,,27,14,,,,,,,,False,Lincoln|hybrids|14|27,,True,True
+27,,Lincoln,,,0,hybrids,,,27,15,,,,,,,,False,Lincoln|hybrids|15|27,,True,True
+0,,MOValley,,,0,Hybrids,,,4,27,,,,,,,,False,MOValley|Hybrids|27|4,,True,True
+1,,MOValley,,,0,Hybrids,,,17,29,,,,,,,,False,MOValley|Hybrids|29|17,,True,True
+2,,MOValley,,,0,Hybrids,,,20,29,,,,,,,,False,MOValley|Hybrids|29|20,,True,True
+3,,MOValley,,,0,Hybrids,,,21,23,,,,,,,,False,MOValley|Hybrids|23|21,,True,True
+4,,MOValley,,,0,Hybrids,,,28,27,,,,,,,,False,MOValley|Hybrids|27|28,,True,True
+5,,MOValley,,,0,Hybrids,,,31,27,,,,,,,,False,MOValley|Hybrids|27|31,,True,True
+6,,MOValley,,,0,Hybrids,,,36,27,,,,,,,,False,MOValley|Hybrids|27|36,,True,True
+7,,MOValley,,,0,Hybrids,,,41,27,,,,,,,,False,MOValley|Hybrids|27|41,,True,True
+0,,Scottsbluff,,Low,0,__MISSING__,,,23,4,,,,,,,,True,__INVALID_ROW_118,,True,True
+0,,Scottsbluff,,Medium,0,__MISSING__,,,23,17,,,,,,,,True,__INVALID_ROW_119,,True,True
+0,,Scottsbluff,,High,0,__MISSING__,,,23,26,,,,,,,,True,__INVALID_ROW_120,,True,True
+1,,Scottsbluff,,Low,0,__MISSING__,,,23,7,,,,,,,,True,__INVALID_ROW_121,,True,True
+1,,Scottsbluff,,Medium,0,__MISSING__,,,24,17,,,,,,,,True,__INVALID_ROW_122,,True,True
+1,,Scottsbluff,,High,0,__MISSING__,,,24,26,,,,,,,,True,__INVALID_ROW_123,,True,True
+2,,Scottsbluff,,Low,0,__MISSING__,,,24,7,,,,,,,,True,__INVALID_ROW_124,,True,True
+2,,Scottsbluff,,Medium,0,__MISSING__,,,25,17,,,,,,,,True,__INVALID_ROW_125,,True,True
+2,,Scottsbluff,,High,0,__MISSING__,,,25,26,,,,,,,,True,__INVALID_ROW_126,,True,True
+3,,Scottsbluff,,Low,0,__MISSING__,,,25,7,,,,,,,,True,__INVALID_ROW_127,,True,True
+3,,Scottsbluff,,Medium,0,__MISSING__,,,26,17,,,,,,,,True,__INVALID_ROW_128,,True,True
+3,,Scottsbluff,,High,0,__MISSING__,,,26,26,,,,,,,,True,__INVALID_ROW_129,,True,True
+4,,Scottsbluff,,Low,0,__MISSING__,,,26,7,,,,,,,,True,__INVALID_ROW_130,,True,True
+4,,Scottsbluff,,Medium,0,__MISSING__,,,27,17,,,,,,,,True,__INVALID_ROW_131,,True,True
+4,,Scottsbluff,,High,0,__MISSING__,,,27,26,,,,,,,,True,__INVALID_ROW_132,,True,True
+5,,Scottsbluff,,Low,0,__MISSING__,,,27,7,,,,,,,,True,__INVALID_ROW_133,,True,True
+542,22-C-1584399,Crawfordsville,0.0,Low,75,4352,17.5,1.0,3,20,1584399.0,LH74 X PHM49,2022-05-11,62.0,,,,False,Crawfordsville|4352|20|3,131.0,False,True
+3283,SCOTTSBLUFF$HYBRID-HIPS - HIGH NITROGEN$REP1$PLOT1394$ROW5$RANGE6$PHK76 X 3IIH6,Scottsbluff,16.9,Low,75,n75,22.5,1.0,5,6,1104.0,B37 X H95,2022-05-19,,78.0,1483.45,,False,Scottsbluff|n75|6|5,139.0,False,True
+3291,SCOTTSBLUFF$HYBRID-HIPS - HIGH NITROGEN$REP1$PLOT1402$ROW5$RANGE14$LH82 X W606S,Scottsbluff,16.9,Low,75,n75,22.5,1.0,5,14,1112.0,F42 X MO17,2022-05-19,,82.0,1573.4,,False,Scottsbluff|n75|14|5,139.0,False,True
+3354,SCOTTSBLUFF$HYBRID-HIPS - HIGH NITROGEN$REP2$PLOT1465$ROW3$RANGE27$LH195 X PHZ51,Scottsbluff,16.9,Low,75,n75,22.5,2.0,3,27,1075.0,LH185 X LH82,2022-05-19,,69.0,1286.36,,False,Scottsbluff|n75|27|3,139.0,False,True
+3367,SCOTTSBLUFF$HYBRID-HIPS - HIGH NITROGEN$REP2$PLOT1403$ROW5$RANGE15$PHP02 X LH145,Scottsbluff,16.9,Low,75,n75,22.5,2.0,5,15,1113.0,PHK76 X LH82,2022-05-19,,70.0,1309.51,,False,Scottsbluff|n75|15|5,139.0,False,True
+3370,SCOTTSBLUFF$HYBRID-HIPS - HIGH NITROGEN$REP2$PLOT1406$ROW5$RANGE18$PHP02 X LH185,Scottsbluff,16.9,Low,75,n75,22.5,2.0,5,18,1116.0,WF9 X H95,2022-05-19,,81.0,1552.11,,False,Scottsbluff|n75|18|5,139.0,False,True
+3497,SCOTTSBLUFF$HYBRID-HIPS - FILL NITROGEN$REPL$PLOTFILL$ROW11$RANGE27$FILL,Scottsbluff,16.9,Medium,150,n150,22.5,4.0,11,27,1195.0,2369 X PHZ51,2022-05-19,,85.0,1646.06,,False,Scottsbluff|n150|27|11,139.0,False,True
+1608,MV$HYBRID-HIPS$REP1$PLOT46$ROW25$RANGE13$B84 X 3IIH6,MOValley,0.0,Medium,175,Hybrids,17.5,2.0,13,25,246.0,LH185 X LH145,2022-04-29,,,,,False,MOValley|Hybrids|25|13,119.0,False,True
+1612,MV$HYBRID-HIPS$REP1$PLOT50$ROW25$RANGE14$4N506 X 3IIH6,MOValley,0.0,Medium,175,Hybrids,17.5,2.0,14,25,250.0,LH185 X W606S,2022-04-29,,,,,False,MOValley|Hybrids|25|14,119.0,False,True
+1615,MV$HYBRID-HIPS$REP1$PLOT53$ROW23$RANGE15$PHK76 X LH145,MOValley,0.0,Medium,175,Hybrids,17.5,2.0,15,23,253.0,PHB47 X PHJ89,2022-04-29,,,,,False,MOValley|Hybrids|23|15,119.0,False,True
+1613,MV$HYBRID-HIPS$REP1$PLOT51$ROW27$RANGE14$SOLAR 3,MOValley,0.0,Medium,175,Hybrids,17.5,2.0,14,27,251.0,PHG39 X PHN82,2022-04-29,,,,,False,MOValley|Hybrids|27|14,119.0,False,True
+1621,MV$HYBRID-HIPS$REP1$PLOT59$ROW27$RANGE16$B73 X MO17,MOValley,0.0,Medium,175,Hybrids,17.5,2.0,16,27,259.0,PHK56 X LH145,2022-04-29,,,,,False,MOValley|Hybrids|27|16,119.0,False,True
+3623,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP1$PLOT1055$ROW24$RANGE7$LH74 X PHM49,Scottsbluff,16.9,High,225,n225,22.5,5.0,24,7,1445.0,HOEGEMEYER 8065RR,2022-05-19,,76.0,1437.65,,False,Scottsbluff|n225|7|24,139.0,False,True
+3624,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP1$PLOT1056$ROW24$RANGE8$LH195 X PHZ51,Scottsbluff,16.9,High,225,n225,22.5,5.0,24,8,1446.0,LH185 X LH82,2022-05-19,,75.0,1414.31,,False,Scottsbluff|n225|8|24,139.0,False,True
+3627,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP1$PLOT1059$ROW24$RANGE11$PHP02 X W606S,Scottsbluff,16.9,High,225,n225,22.5,5.0,24,11,1449.0,LH195 X LH185,2022-05-19,,78.0,1483.45,,False,Scottsbluff|n225|11|24,139.0,False,True
+3709,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP2$PLOT1065$ROW24$RANGE17$PHW52 X PHZ51,Scottsbluff,16.9,High,225,n225,22.5,6.0,24,17,1455.0,PHK56 X 3IIH6,2022-05-19,,79.0,1509.4,,False,Scottsbluff|n225|17|24,139.0,False,True
+3626,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP1$PLOT1058$ROW24$RANGE10$PHG39 X PHM49,Scottsbluff,16.9,High,225,n225,22.5,5.0,24,10,1448.0,PHK56 X LH185,2022-05-19,,77.0,1459.11,,False,Scottsbluff|n225|10|24,139.0,False,True
+3710,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP2$PLOT1066$ROW24$RANGE18$LH195 X PHZ51,Scottsbluff,16.9,High,225,n225,22.5,6.0,24,18,1456.0,PHK56 X LH185,2022-05-19,,75.0,1414.31,,False,Scottsbluff|n225|18|24,139.0,False,True
+3619,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP1$PLOT1051$ROW24$RANGE3$B73 X PHZ51,Scottsbluff,16.9,High,225,n225,22.5,5.0,24,3,1441.0,PHK56 X W606S,2022-05-19,,70.0,1309.51,,False,Scottsbluff|n225|3|24,139.0,False,True
+3682,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP2$PLOT1114$ROW22$RANGE16$PHN46 X W606S,Scottsbluff,16.9,High,225,n225,22.5,6.0,22,16,1404.0,PHK76 X LH82,2022-05-19,,72.0,1350.26,,False,Scottsbluff|n225|16|22,139.0,False,True
+3622,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP1$PLOT1054$ROW24$RANGE6$2FACC X 3IIH6,Scottsbluff,16.9,High,225,n225,22.5,5.0,24,6,1444.0,PHK76 X W606S,2022-05-19,,84.0,1622.26,,False,Scottsbluff|n225|6|24,139.0,False,True
+3620,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP1$PLOT1052$ROW24$RANGE4$PHN46 X W606S,Scottsbluff,16.9,High,225,n225,22.5,5.0,24,4,1442.0,PHP02 X PHG47,2022-05-19,,74.0,1393.15,,False,Scottsbluff|n225|4|24,139.0,False,True
+3625,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP1$PLOT1057$ROW24$RANGE9$PHK76 X 3IIH6,Scottsbluff,16.9,High,225,n225,22.5,5.0,24,9,1447.0,PHP02 X PHJ89,2022-05-19,,75.0,1414.31,,False,Scottsbluff|n225|9|24,139.0,False,True
+3708,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP2$PLOT1064$ROW24$RANGE16$B73 X PHM49,Scottsbluff,16.9,High,225,n225,22.5,6.0,24,16,1454.0,PHP02 X PHN46,2022-05-19,,76.0,1437.65,,False,Scottsbluff|n225|16|24,139.0,False,True
+3621,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP1$PLOT1053$ROW24$RANGE5$LH195 X LH185,Scottsbluff,16.9,High,225,n225,22.5,5.0,24,5,1443.0,PHW52 X PHZ51,2022-05-19,,75.0,1414.31,,False,Scottsbluff|n225|5|24,139.0,False,True
+3700,SCOTTSBLUFF$HYBRID-HIPS - LOW NITROGEN$REP2$PLOT1094$ROW23$RANGE21$PHP02 X PHJ89,Scottsbluff,16.9,High,225,n225,22.5,6.0,23,21,1434.0,SYNGENTA NK0760-3111,2022-05-19,,74.0,1393.15,,False,Scottsbluff|n225|21|23,139.0,False,True

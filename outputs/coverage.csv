@@ -1,0 +1,16 @@
+cutoff,location,plots,missing_imagery,mean_observations
+60,Ames,487,0,1.0
+60,Crawfordsville,488,0,1.0
+60,Lincoln,504,0,1.0
+60,MOValley,163,163,0.0
+60,Scottsbluff,489,0,2.0
+75,Ames,487,0,2.0
+75,Crawfordsville,488,0,2.0
+75,Lincoln,504,0,1.0
+75,MOValley,163,0,1.0
+75,Scottsbluff,489,0,2.0
+90,Ames,487,0,3.0
+90,Crawfordsville,488,0,3.0
+90,Lincoln,504,0,2.0
+90,MOValley,163,0,2.0
+90,Scottsbluff,489,0,3.0

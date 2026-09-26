@@ -1,0 +1,30 @@
+.venv/
+__pycache__/
+.pytest_cache/
+catboost_info/
+.streamlit/secrets.toml
+
+# Raw imagery stays on disk; retain ground truth and dataset documentation.
+2022/DataPublication_final/Satellite/
+2022/DataPublication_final/UAV/
+2022/DataPublication_final/Documentation.zip
+
+# Keep reusable artifact builders, but exclude previews and runtime dependencies.
+.build/*
+!.build/*.py
+!.build/presentation/
+.build/presentation/*
+!.build/presentation/*.mjs
+.chart-data-*/
+node_modules/
+.matplotlib/
+outputs/smoke/
+
+# Local caches and credentials.
+.ipynb_checkpoints/
+.DS_Store
+.Rhistory
+.env
+.env.*
+!.env.example
+*.log

@@ -1,0 +1,38 @@
+{
+  "features": [
+    "planting_doy",
+    "poundsOfNitrogenPerAcre",
+    "irrigationProvided",
+    "genotype"
+  ],
+  "cutoff": 60,
+  "variant": "agronomy",
+  "training_years": [
+    2022
+  ],
+  "training_locations": [
+    "Ames",
+    "Crawfordsville",
+    "Lincoln",
+    "MOValley",
+    "Scottsbluff"
+  ],
+  "training_plots": 2131,
+  "band_mapping": {
+    "red": 1,
+    "green": 2,
+    "blue": 3,
+    "nir": 4,
+    "red_edge": 5,
+    "deep_blue": 6
+  },
+  "parameters": {
+    "iterations": 400,
+    "depth": 5,
+    "learning_rate": 0.05,
+    "loss_function": "RMSE",
+    "random_seed": 42,
+    "thread_count": 4
+  },
+  "warning": "Full-data fit for inference only; never use for reported validation metrics."
+}
