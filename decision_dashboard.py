@@ -35,26 +35,27 @@ for filename, label in [("FieldSignal_IoT4Ag_pitch.pptx", "Download five-slide p
         st.sidebar.download_button(label, file.read_bytes(), file_name=file.name)
 now, evidence, trials = st.tabs(["Scouting & warning", "What imagery adds · evaluation", "Next replicated trials · observed"])
 with now:
-    _, site_priorities = plan_tables(predictions, cutoff)
-    render_site_checks(site_priorities, cutoff, "decision_location", "decision_sites")
-    st.caption("Site comparison uses the illustrative forecast-gap rule. The inspection list below keeps the evaluated lowest-yield-first order.")
-    st.subheader("Inspect the lowest predicted yields first")
-    st.write("Candidate rule: from day 75, flag the lowest predicted 20% within each location. Inspect in predicted-yield order up to your capacity. A flag prompts a human check; it does not diagnose a cause or prescribe a treatment.")
-    if cutoff == 60:
-        st.warning("Day 60 is supporting evidence only. The warning rule starts at day 75. Missouri Valley has no eligible imagery at day 60.")
-    flagged = queue.loc[queue.warning_flag]
-    a, b, c = st.columns(3)
-    a.metric("Inspection capacity", int(capacity))
-    b.metric("Plots flagged", len(flagged))
-    c.metric("Flag boundary · bu/ac", f"{flagged.predicted_yield.max():.1f}" if len(flagged) else "Inactive")
-    st.caption("The yield boundary changes with site and date; it is not a universal agronomic threshold. Ties use plot ID. Recent NDVI decline is supporting context, not a trigger.")
-    selected = queue.loc[queue.selected]
-    fields = {"priority":"Priority", "plot_id":"Plot", "genotype":"Hybrid", "predicted_yield":"Predicted yield (bu/ac)", "warning_flag":"Flagged", "delta_ndvi":"Recent NDVI change", "image_age_days":"Image age (days)", "prediction_date":"Replay date"}
-    st.dataframe(selected[list(fields)].rename(columns=fields).round(3), hide_index=True, width="stretch")
-    st.download_button("Download inspection list", selected.to_csv(index=False).encode(), file_name=f"inspection_{site}_day{cutoff}_{capacity}plots.csv", mime="text/csv")
-    st.caption(f"Missing imagery: {int(queue.missing_imagery.sum())} of {len(queue)} plots. Image age and observation count should inform inspection planning.")
-    if queue.invalid_negative_prediction.any():
-        st.warning("Some forecasts are negative and physically implausible. They indicate model failure, not a literal yield estimate.")
+    site_plots, site_priorities = plan_tables(predictions, cutoff)
+    render_site_checks(site_priorities, cutoff, site_plots, int(capacity), "decision_sites", order="yield")
+    with st.expander(f"Detailed inspection table · {site}", expanded=False):
+        st.caption("Site comparison uses the illustrative forecast-gap rule. The inspection list below keeps the evaluated lowest-yield-first order.")
+        st.subheader("Inspect the lowest predicted yields first")
+        st.write("Candidate rule: from day 75, flag the lowest predicted 20% within each location. Inspect in predicted-yield order up to your capacity. A flag prompts a human check; it does not diagnose a cause or prescribe a treatment.")
+        if cutoff == 60:
+            st.warning("Day 60 is supporting evidence only. The warning rule starts at day 75. Missouri Valley has no eligible imagery at day 60.")
+        flagged = queue.loc[queue.warning_flag]
+        a, b, c = st.columns(3)
+        a.metric("Inspection capacity", int(capacity))
+        b.metric("Plots flagged", len(flagged))
+        c.metric("Flag boundary · bu/ac", f"{flagged.predicted_yield.max():.1f}" if len(flagged) else "Inactive")
+        st.caption("The yield boundary changes with site and date; it is not a universal agronomic threshold. Ties use plot ID. Recent NDVI decline is supporting context, not a trigger.")
+        selected = queue.loc[queue.selected]
+        fields = {"priority":"Priority", "plot_id":"Plot", "genotype":"Hybrid", "predicted_yield":"Predicted yield (bu/ac)", "warning_flag":"Flagged", "delta_ndvi":"Recent NDVI change", "image_age_days":"Image age (days)", "prediction_date":"Replay date"}
+        st.dataframe(selected[list(fields)].rename(columns=fields).round(3), hide_index=True, width="stretch")
+        st.download_button("Download inspection list", selected.to_csv(index=False).encode(), file_name=f"inspection_{site}_day{cutoff}_{capacity}plots.csv", mime="text/csv")
+        st.caption(f"Missing imagery: {int(queue.missing_imagery.sum())} of {len(queue)} plots. Image age and observation count should inform inspection planning.")
+        if queue.invalid_negative_prediction.any():
+            st.warning("Some forecasts are negative and physically implausible. They indicate model failure, not a literal yield estimate.")
 with evidence:
     st.subheader("The same held-out plots, with and without imagery")
     overall = comparison.query("location == 'Overall' and cutoff in [75, 90]").copy()

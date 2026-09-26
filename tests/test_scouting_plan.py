@@ -21,19 +21,22 @@ def test_scouting_plan_dashboard_uses_real_plot_ids():
     app=AppTest.from_file(str(ROOT/"dashboard.py"),default_timeout=30).run()
     app.radio[0].set_value("Scouting plan").run()
     assert not app.exception
-    next(x for x in app.button if x.label=="Check Scottsbluff").click().run()
-    assert not app.exception
-    assert next(x for x in app.selectbox if x.label=="Plan location").value=="Scottsbluff"
+    site_panels = [x for x in app.expander if "plots flagged" in x.label]
+    assert len(site_panels) == 5
+    assert all(not x.proto.expanded for x in site_panels)
     plots,sites=plan_tables(pd.read_csv(ROOT/"outputs/held_out_predictions.csv"),75)
     first=plots.loc[plots.location.eq("Scottsbluff")].iloc[0]
     assert any(first.plot_id in x.value for x in app.markdown)
-    assert app.metric[0].value==str(int(sites.loc[sites.location.eq("Scottsbluff"),"anomalies"].iloc[0]))
-    assert any("Not calibrated" in x.value for x in app.markdown)
+    scotts = next(x for x in site_panels if "Scottsbluff" in x.label)
+    assert "49 plots flagged" in scotts.label
+    assert any(first.plot_id in x.value for x in scotts.markdown)
+    assert any(x.label=="Download Scottsbluff inspection list" for x in scotts.get("download_button"))
+    assert any("Not calibrated" in x.value for x in app.caption)
     assert any("Suggested first stop: Crawfordsville" in x.value for x in app.success)
     for _, site in sites.iterrows():
         assert any(f"{int(site.anomalies)} of {int(site.plots)} plots flagged" in x.value for x in app.markdown)
     app.radio[0].set_value("Decision brief").run()
-    next(x for x in app.button if x.label=="Check Missouri Valley").click().run()
+    next(x for x in app.selectbox if x.label=="Trial location").select("MOValley").run()
     assert not app.exception
     assert next(x for x in app.selectbox if x.label=="Trial location").value=="MOValley"
     assert app.dataframe[0].value.Plot.str.startswith("MOValley|").all()
