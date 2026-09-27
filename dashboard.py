@@ -55,10 +55,7 @@ with st.sidebar:
     chosen_model = st.selectbox("Forecast model", ["combined", "ridge_combined", "agronomy", "ridge_agronomy"], format_func=LABELS.get, disabled=not forecast)
     st.caption("Forecasts for each location come from models trained on other locations. Ridge is an exploratory 2022 comparison.")
     st.divider()
-    pitch = ROOT / "deliverables" / "FieldSignal_pitch.pptx"
     brief = ROOT / "deliverables" / "FieldSignal_findings.pdf"
-    if pitch.exists():
-        st.download_button("Download pitch deck", pitch.read_bytes(), file_name=pitch.name)
     if brief.exists():
         st.download_button("Download findings brief", brief.read_bytes(), file_name=brief.name, mime="application/pdf")
 

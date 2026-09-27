@@ -33,10 +33,6 @@ render_coverage(predictions, cutoff)
 group = predictions.query("model == @model and cutoff == @cutoff and location == @site")
 capacity = st.sidebar.number_input("Trial plots to inspect", 1, len(group), min(10, len(group)), key=f"decision_capacity_{site}")
 queue = warning_queue(group, int(capacity))
-for filename, label in [("FieldSignal_IoT4Ag_pitch.pptx", "Download five-slide pitch"), ("FieldSignal_IoT4Ag_brief.pdf", "Download one-page brief")]:
-    file = ROOT / "deliverables/IoT4Ag" / filename
-    if file.exists():
-        st.sidebar.download_button(label, file.read_bytes(), file_name=file.name)
 now, evidence, trials = st.tabs(["Scouting & warning", "What imagery adds · evaluation", "Next replicated trials · observed"])
 with now:
     site_plots, site_priorities = plan_tables(predictions, cutoff, model=model)
