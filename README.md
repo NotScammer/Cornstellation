@@ -133,3 +133,33 @@ git add .
 git commit -m "Describe the change"
 git log --oneline
 ```
+
+
+## Optional UAV experiment
+
+UAV support uses plot-segmented RGB/RGBA PNGs in `UAV/` and the **UAV** rows of `GroundTruth/DateofCollection.xlsx`. It does not calculate NDVI from RGB. Features are normalized color medians, excess-green median and spread, green-pixel fraction, their changes, and observation age/coverage. Transparent and zero-filled border pixels are excluded. Green-pixel fraction is an appearance indicator, not validated canopy cover or a diagnosis.
+
+Run the isolated experiment and build all supporting dashboard evidence:
+
+```powershell
+.\.venv\Scripts\python.exe -m maize run --include-uav --output outputs/uav
+.\.venv\Scripts\python.exe -m maize.uav_report --output outputs/uav
+$env:MAIZE_OUTPUT = (Resolve-Path outputs/uav).Path
+.\.venv\Scripts\python.exe -m streamlit run dashboard.py --server.address 127.0.0.1
+```
+
+For a small pipeline check, use `--include-uav --smoke --output outputs/uav-smoke`. Standalone reports require a full evaluation. Preparation and training can also run separately with `prepare --include-uav` and `train --include-uav`. The default output with UAV enabled is `outputs/uav`; the original results remain in `outputs`. Remove `MAIZE_OUTPUT` to return the dashboard to the original results.
+
+The scouting workspaces default to **Agronomy + satellite**. Choose **Agronomy + satellite + UAV (experimental)** to change the forecast used for queues, site priorities, hybrid watch, trip selection and exports. The evaluation compares agronomy, satellite, UAV and both imagery sources on identical held-out plots. Hybrid performance retains its original satellite/agronomy forecast choices. UAV image evidence may be viewed alongside either scouting model; its display does not imply that the selected model uses UAV features.
+
+Read `outputs/uav/uav_evidence.md` for the result and `uav_incremental_value.csv` for site-specific changes. `model_comparison.csv` uses up to 10 visits per site; `scouting_metrics.csv` retains the original 10% visit budget. `scouting_priorities_10.csv` contains model-labeled fixed-capacity lists. `uav_coverage.csv`, `uav_data_quality.json`, `uav_file_inventory.csv`, `uav_inventory.csv`, `uav_unmatched_images.csv`, and `uav_image_errors.csv` document availability and exclusions. `uav_image_index.csv` links eligible thumbnails; raw images must remain available at the recorded data root to display them.
+
+Models retain separate satellite and UAV feature names and flight dates. Only observations from planting through the requested cutoff enter a forecast or thumbnail. Plots with missing UAV observations remain eligible; missing inputs are handled by the trained model, not by substituting future flights. RGB color varies with illumination and camera processing. This remains exploratory 2022 spatial validation, not evidence of future-season accuracy.
+
+Predict an unlabeled season with the saved UAV model:
+
+```powershell
+.\.venv\Scripts\python.exe -m maize predict --model combined_uav --models-dir outputs/uav/models --data-root 2023/DataPublication_final --output outputs/2023-uav
+```
+
+`--model agronomy_uav`, `agronomy`, and `combined` are also supported for inference; `combined` remains the default. Selecting a UAV inference model automatically enables UAV preparation. UAV feature definitions are versioned in model manifests and checked at inference. Existing satellite-only models remain compatible.

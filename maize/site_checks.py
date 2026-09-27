@@ -2,9 +2,10 @@
 import pandas as pd
 import streamlit as st
 from maize.scouting_trip import render_scouting_trip
+from maize.uav_dashboard import render_uav
 
 
-def render_plot_summaries(selected, order):
+def render_plot_summaries(selected, order, output=None):
     st.markdown("**Scout first**")
     for number, (_, plot) in enumerate(selected.head(3).iterrows(), 1):
         st.markdown(f"**{number}. {plot.plot_id}** · {plot.genotype}")
@@ -22,6 +23,8 @@ def render_plot_summaries(selected, order):
             st.write(f"**Satellite trajectory:** {trajectory}")
             age = f"{plot.image_age_days:.0f} days" if pd.notna(plot.image_age_days) else "No eligible image"
             st.caption(f"Image age: {age} · Replay: {plot.prediction_date}")
+        if output is not None:
+            render_uav(plot, output)
         if order == "gap":
             reason = f"Forecast rank is {plot.expectation_gap:.0f} percentile points below the agronomy model." if plot.expectation_gap >= 0 else "Model disagreement; forecast rank is above the agronomy model."
         else:
@@ -52,24 +55,29 @@ def render_site_checks(sites, cutoff, plots, capacity, key_prefix, order="gap", 
             st.write(f"**{int(row.anomalies)} of {int(row.plots)} plots flagged · {row.anomaly_rate:.1%}**")
             st.progress(float(row.anomaly_rate))
             if row.missing_images:
-                st.caption(f"{int(row.missing_images)} plots have no eligible image. Missing imagery can hide problems.")
+                st.caption(f"{int(row.missing_images)} plots have no eligible satellite image. Missing imagery can hide problems.")
             local = plots.loc[plots.location.eq(row.location)].copy()
+            if "uav_missing_imagery" in local:
+                st.caption(f"UAV coverage: {int(local.uav_missing_imagery.eq(0).sum())}/{len(local)} plots by this cutoff.")
             if order == "yield":
                 local = local.sort_values(["predicted_yield", "plot_id"])
                 st.caption("Plot order: lowest predicted yield first. The site ranking above uses the separate, illustrative forecast-gap screen.")
             else:
                 st.caption("Plot order: candidate anomalies first, then the largest gap from agronomic expectation. This order has not been validated.")
             selected = local.head(min(capacity, len(local))).copy()
+            selected["cutoff"] = cutoff
             selected["inspection_order"] = range(1, len(selected) + 1)
-            render_plot_summaries(selected, order)
+            render_plot_summaries(selected, order, output)
             st.caption(f"Showing {min(3, len(selected))} plot summaries; download includes {len(selected)} plots. Capacity is applied separately to each site.")
-            st.download_button(f"Download {name} inspection list", selected.to_csv(index=False).encode(), file_name=f"inspection_{row.location}_day{cutoff}_{len(selected)}plots_{order}.csv", mime="text/csv", key=f"{key_prefix}_{row.location}_{cutoff}_list")
+            st.download_button(f"Download {name} inspection list", selected.to_csv(index=False).encode(), file_name=f"inspection_{selected.iloc[0].get('model', 'combined')}_{row.location}_day{cutoff}_{len(selected)}plots_{order}.csv", mime="text/csv", key=f"{key_prefix}_{row.location}_{cutoff}_list")
             if output is not None:
                 render_scouting_trip(selected, output, f"{key_prefix}_{row.location}_trip")
     st.caption("A lower position means fewer flags under this rule; it does not mean a site is free of problems.")
     export = sites[["site_priority", "location", "anomalies", "plots", "anomaly_rate", "missing_images"]].copy()
+    model = plots.iloc[0].get("model", "combined")
+    export["Model"] = model
     export["anomaly_rate"] = (export.anomaly_rate * 100).round(2)
     export = export.rename(columns={"site_priority":"Suggested order", "location":"Site", "anomalies":"Plots flagged", "plots":"Total plots", "anomaly_rate":"Plots flagged (%)", "missing_images":"Plots missing imagery"})
     export["Site"] = export.Site.replace({"MOValley":"Missouri Valley"})
-    st.download_button("Download site check priorities", export.to_csv(index=False).encode(), file_name=f"site_check_priorities_day{cutoff}.csv", mime="text/csv", key=f"{key_prefix}_download")
+    st.download_button("Download site check priorities", export.to_csv(index=False).encode(), file_name=f"site_check_priorities_{model}_day{cutoff}.csv", mime="text/csv", key=f"{key_prefix}_download")
     st.divider()

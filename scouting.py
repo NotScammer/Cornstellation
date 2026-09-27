@@ -11,6 +11,7 @@ from maize.modeling import scout_table, scouting_metrics
 from maize.branding import render_team_branding
 from maize.yield_audit import render_yield_audit
 from maize.scouting_trip import render_scouting_trip
+from maize.uav_dashboard import select_forecast, render_uav, render_coverage
 
 st.set_page_config(page_title="FieldSignal by Cornstellation | Maize scouting", page_icon="🌽", layout="wide")
 st.markdown("""
@@ -51,7 +52,8 @@ with st.sidebar:
     st.header("Scouting brief")
     cutoff = st.select_slider("Days after planting", options=sorted(predictions.cutoff.unique().tolist()), value=int(predictions.cutoff.max()))
     location = st.selectbox("Trial location", sorted(predictions.location.unique()))
-    available_plots = int((predictions.cutoff.eq(cutoff) & predictions.location.eq(location) & predictions.model.eq("combined")).sum())
+    model = select_forecast(predictions, "secondary_model")
+    available_plots = int((predictions.cutoff.eq(cutoff) & predictions.location.eq(location) & predictions.model.eq(model)).sum())
     if "scouting_capacity_count" in st.session_state:
         st.session_state.scouting_capacity_count = min(max(1, st.session_state.scouting_capacity_count), available_plots)
     capacity = st.number_input("Number of trial plots to scout", min_value=1, max_value=available_plots,
@@ -60,10 +62,13 @@ with st.sidebar:
     st.divider()
     st.write("**Prediction inputs**")
     st.caption("Planting date · nitrogen · irrigation · hybrid · six-band satellite observations available by the cutoff.")
+    if model == "combined_uav":
+        st.caption("Also includes RGB UAV appearance measurements available by the cutoff.")
 
-table = scout_table(predictions, cutoff, location, capacity=int(capacity))
+table = scout_table(predictions, cutoff, location, capacity=int(capacity), model=model)
 selected = table.loc[table.selected]
-group = predictions.loc[predictions.cutoff.eq(cutoff) & predictions.location.eq(location) & predictions.model.eq("combined")]
+group = predictions.loc[predictions.cutoff.eq(cutoff) & predictions.location.eq(location) & predictions.model.eq(model)]
+render_coverage(predictions, cutoff)
 missing = int(table.missing_imagery.sum())
 a, b, c = st.columns(3)
 a.metric("Plots in this site", f"{len(table):,}")
@@ -85,8 +90,12 @@ with scouting_tab:
     st.write("Use low predicted yield as a reason to inspect. Field observations are needed to establish the cause and whether intervention can help.")
     st.dataframe(selected[display_columns].rename(columns=display_names), hide_index=True, width="stretch")
     st.download_button("Download scouting brief", selected.to_csv(index=False).encode("utf-8"),
-                       file_name=f"scouting_{location}_day{cutoff}.csv", mime="text/csv")
+                       file_name=f"scouting_{model}_{location}_day{cutoff}.csv", mime="text/csv")
     render_scouting_trip(selected, output, f"secondary_{location}_trip")
+    if (output / "uav_image_index.csv").exists():
+        with st.expander("UAV evidence for the first three visits"):
+            for _, plot in selected.head(3).iterrows():
+                render_uav(plot, output)
     with st.expander("View all ranked plots"):
         st.dataframe(table[display_columns].rename(columns=display_names), hide_index=True, width="stretch")
     st.caption("Missing changes indicate fewer than two usable observations. Yield is standardized to 15.5% grain moisture.")
@@ -96,7 +105,7 @@ with evaluation_tab:
     site_key = "Overall" if scope == "All sites" else location
     subset = metrics.loc[metrics.location.eq(site_key)]
     current = subset.loc[subset.cutoff.eq(cutoff)].set_index("model")
-    a_mae, c_mae = current.loc["agronomy", "mae"], current.loc["combined", "mae"]
+    a_mae, c_mae = current.loc["agronomy", "mae"], current.loc[model, "mae"]
     a, b, c = st.columns(3)
     a.metric("Agronomy-only MAE", f"{a_mae:.1f} bu/ac")
     b.metric("Combined MAE", f"{c_mae:.1f} bu/ac")
@@ -108,7 +117,7 @@ with evaluation_tab:
     st.plotly_chart(figure, width="stretch")
     st.dataframe(current[["n", "mae", "rmse", "bias", "within_site_spearman"]].round(3), width="stretch")
     st.caption("Bias is predicted minus actual yield. Overall errors are plot-weighted; overall rank correlation is the mean of defined within-site correlations.")
-    render_yield_audit(output, cutoff, location=location if scope == "Selected site" else None)
+    render_yield_audit(output, cutoff, location=location if scope == "Selected site" else None, model=model)
     performance = scouting_metrics(group, underperformance=run_config["underperformance_fraction"], capacity=int(capacity))
     st.subheader(f"Did the scouting brief find low-yield plots in {location}?")
     a, b = st.columns(2)
@@ -123,7 +132,10 @@ with quality_tab:
     st.subheader("What this prototype can establish")
     st.write("The experiment measures how imagery changes prediction when transferring between five locations in one completed season. It does not establish reliability in a new growing season, diagnose nitrogen deficiency, or estimate causal hybrid effects.")
     st.write("No trustworthy cutoff is declared automatically. The crop team must set an acceptable error tolerance and check whether enough time remains for useful action.")
-    st.write("The early cutoff has no satellite coverage in Missouri Valley. Every comparison retains the same labeled plot cohort.")
+    st.write("Coverage is shown by source and cutoff. Every comparison retains the same labeled plot cohort.")
     st.dataframe(coverage, hide_index=True, width="stretch")
+    if (output / "uav_coverage.csv").exists():
+        st.dataframe(pd.read_csv(output / "uav_coverage.csv"), hide_index=True)
+        st.json(json.loads((output / "uav_data_quality.json").read_text()))
     st.json(quality)
     st.caption("Band order follows the supplied extraction notebook and is checked against recognized TIFF descriptions. Cloud/shadow QA masks are not supplied; valid pixels do not guarantee cloud-free observations.")

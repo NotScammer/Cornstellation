@@ -130,6 +130,7 @@ def render_scouting_trip(selected, output, key_prefix):
                "Visits the nearest remaining selected plot next. Field paths, obstacles, entrance travel and walking within plots are not mapped; actual distance may be longer. Inspection time should cover work within each plot.")
     # Export route order separately from the unchanged scouting priority list.
     export = route.copy()
+    export["model"] = selected.iloc[0].get("model", "combined")
     export["return_to_start_miles"] = return_miles
     for name, value in totals.items():
         export[name] = value
@@ -139,7 +140,7 @@ def render_scouting_trip(selected, output, key_prefix):
     export["driving_mph"] = drive_speed if include_drive else np.nan
     export["distance_basis"] = "straight-line plot-center loop; no field paths or entrance"
     st.download_button("Download trip estimate and visit order", export.to_csv(index=False).encode(),
-                       file_name=f"scouting_trip_{selected.iloc[0].location}_{len(selected)}plots.csv",
+                       file_name=f"scouting_trip_{selected.iloc[0].get('model', 'combined')}_{selected.iloc[0].location}_{len(selected)}plots.csv",
                        mime="text/csv", key=f"{key_prefix}_download")
 
 

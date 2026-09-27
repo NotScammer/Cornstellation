@@ -1,0 +1,182 @@
+[
+  {
+    "cutoff": 60,
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "training_plots": 1644,
+    "test_plots": 487
+  },
+  {
+    "cutoff": 60,
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "training_plots": 1643,
+    "test_plots": 488
+  },
+  {
+    "cutoff": 60,
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "training_plots": 1627,
+    "test_plots": 504
+  },
+  {
+    "cutoff": 60,
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "training_plots": 1968,
+    "test_plots": 163
+  },
+  {
+    "cutoff": 60,
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "training_plots": 1642,
+    "test_plots": 489
+  },
+  {
+    "cutoff": 75,
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "training_plots": 1644,
+    "test_plots": 487
+  },
+  {
+    "cutoff": 75,
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "training_plots": 1643,
+    "test_plots": 488
+  },
+  {
+    "cutoff": 75,
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "training_plots": 1627,
+    "test_plots": 504
+  },
+  {
+    "cutoff": 75,
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "training_plots": 1968,
+    "test_plots": 163
+  },
+  {
+    "cutoff": 75,
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "training_plots": 1642,
+    "test_plots": 489
+  },
+  {
+    "cutoff": 90,
+    "held_out_site": "Ames",
+    "training_sites": [
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "training_plots": 1644,
+    "test_plots": 487
+  },
+  {
+    "cutoff": 90,
+    "held_out_site": "Crawfordsville",
+    "training_sites": [
+      "Ames",
+      "Lincoln",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "training_plots": 1643,
+    "test_plots": 488
+  },
+  {
+    "cutoff": 90,
+    "held_out_site": "Lincoln",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "MOValley",
+      "Scottsbluff"
+    ],
+    "training_plots": 1627,
+    "test_plots": 504
+  },
+  {
+    "cutoff": 90,
+    "held_out_site": "MOValley",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "Scottsbluff"
+    ],
+    "training_plots": 1968,
+    "test_plots": 163
+  },
+  {
+    "cutoff": 90,
+    "held_out_site": "Scottsbluff",
+    "training_sites": [
+      "Ames",
+      "Crawfordsville",
+      "Lincoln",
+      "MOValley"
+    ],
+    "training_plots": 1642,
+    "test_plots": 489
+  }
+]

@@ -10,3 +10,4 @@ scipy>=1.14,<2
 matplotlib>=3.9,<4
 streamlit>=1.40,<2
 pytest>=8,<10
+Pillow>=11,<13

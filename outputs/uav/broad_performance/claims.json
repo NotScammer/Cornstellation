@@ -1,0 +1,301 @@
+{
+  "season": 2022,
+  "locations": 5,
+  "hybrids": 84,
+  "labeled_plots": 2131,
+  "environments": 13,
+  "shortlist": [
+    {
+      "genotype": "HOEGEMEYER 8065RR",
+      "average_percentile": 93.39896170046038,
+      "worst_site_percentile": 84.33734939759036,
+      "between_site_sd": 5.38813733322598,
+      "sites_above_median": 5,
+      "sites": 5,
+      "site_years": 5,
+      "yield_advantage": 38.64416747306687,
+      "replicates": 25,
+      "min_cell_replicates": 1,
+      "rank": 1,
+      "qualifies": true,
+      "shortlisted": true
+    },
+    {
+      "genotype": "SYNGENTA NK0760-3111",
+      "average_percentile": 87.5423645802723,
+      "worst_site_percentile": 74.6987951807229,
+      "between_site_sd": 7.335460209417868,
+      "sites_above_median": 5,
+      "sites": 5,
+      "site_years": 5,
+      "yield_advantage": 29.451182287881675,
+      "replicates": 64,
+      "min_cell_replicates": 2,
+      "rank": 2,
+      "qualifies": true,
+      "shortlisted": true
+    },
+    {
+      "genotype": "HOEGEMEYER 7089 AMXT",
+      "average_percentile": 86.54226662748556,
+      "worst_site_percentile": 67.65109217357234,
+      "between_site_sd": 14.292435550166402,
+      "sites_above_median": 5,
+      "sites": 5,
+      "site_years": 5,
+      "yield_advantage": 37.913500806400194,
+      "replicates": 26,
+      "min_cell_replicates": 2,
+      "rank": 3,
+      "qualifies": true,
+      "shortlisted": true
+    },
+    {
+      "genotype": "PIONEER P0589 AMXT",
+      "average_percentile": 84.97894015084731,
+      "worst_site_percentile": 67.46987951807229,
+      "between_site_sd": 13.21040250424454,
+      "sites_above_median": 5,
+      "sites": 5,
+      "site_years": 5,
+      "yield_advantage": 33.14783413973354,
+      "replicates": 26,
+      "min_cell_replicates": 2,
+      "rank": 4,
+      "qualifies": true,
+      "shortlisted": true
+    },
+    {
+      "genotype": "PHW52 X PHN82",
+      "average_percentile": 81.74453913213831,
+      "worst_site_percentile": 58.92349887354296,
+      "between_site_sd": 12.905276346743516,
+      "sites_above_median": 5,
+      "sites": 5,
+      "site_years": 5,
+      "yield_advantage": 22.09483413973353,
+      "replicates": 26,
+      "min_cell_replicates": 2,
+      "rank": 5,
+      "qualifies": true,
+      "shortlisted": true
+    }
+  ],
+  "qualifying_hybrids": 28,
+  "site_yields": [
+    {
+      "location": "Ames",
+      "year": 2022,
+      "balanced_yield": 130.09938492063495
+    },
+    {
+      "location": "Crawfordsville",
+      "year": 2022,
+      "balanced_yield": 164.85095238095235
+    },
+    {
+      "location": "Lincoln",
+      "year": 2022,
+      "balanced_yield": 40.724603174603175
+    },
+    {
+      "location": "MOValley",
+      "year": 2022,
+      "balanced_yield": 152.88363095238097
+    },
+    {
+      "location": "Scottsbluff",
+      "year": 2022,
+      "balanced_yield": 141.5072578727609
+    }
+  ],
+  "nitrogen_sites": [
+    {
+      "location": "Ames",
+      "year": 2022,
+      "mean_difference": -23.594166666666666,
+      "median_difference": -25.114999999999988,
+      "matched_hybrids": 84,
+      "positive_hybrids": 12,
+      "replicates_75": 163,
+      "replicates_150": 161
+    },
+    {
+      "location": "Crawfordsville",
+      "year": 2022,
+      "mean_difference": 15.373273809523809,
+      "median_difference": 14.667500000000004,
+      "matched_hybrids": 84,
+      "positive_hybrids": 70,
+      "replicates_75": 162,
+      "replicates_150": 163
+    },
+    {
+      "location": "Lincoln",
+      "year": 2022,
+      "mean_difference": 10.874617346938775,
+      "median_difference": 10.425000000000004,
+      "matched_hybrids": 84,
+      "positive_hybrids": 67,
+      "replicates_75": 168,
+      "replicates_150": 168
+    },
+    {
+      "location": "Scottsbluff",
+      "year": 2022,
+      "mean_difference": 29.245440476190478,
+      "median_difference": 27.867499999999986,
+      "matched_hybrids": 84,
+      "positive_hybrids": 77,
+      "replicates_75": 164,
+      "replicates_150": 169
+    }
+  ],
+  "nitrogen_equal_site_difference": 7.9747912414965985,
+  "nitrogen_matched_pairs": 336,
+  "day90_combined_mae": 43.98072243457965,
+  "day90_mean_mae": 55.104191627116194,
+  "day90_ridge_combined_mae": 39.43488679757536,
+  "day90_ridge_improvement_vs_mean_pct": 28.435776602210662,
+  "day90_improvement_vs_mean_pct": 20.186248748203766,
+  "ranking_by_model_cutoff": [
+    {
+      "model": "agronomy",
+      "cutoff": 60,
+      "spearman": 0.39600075149568326,
+      "top10_overlap": 3.2
+    },
+    {
+      "model": "agronomy",
+      "cutoff": 75,
+      "spearman": 0.39600075149568326,
+      "top10_overlap": 3.2
+    },
+    {
+      "model": "agronomy",
+      "cutoff": 90,
+      "spearman": 0.39600075149568326,
+      "top10_overlap": 3.2
+    },
+    {
+      "model": "agronomy_uav",
+      "cutoff": 60,
+      "spearman": 0.4480491554200336,
+      "top10_overlap": 3.0
+    },
+    {
+      "model": "agronomy_uav",
+      "cutoff": 75,
+      "spearman": 0.35755015125528666,
+      "top10_overlap": 2.8
+    },
+    {
+      "model": "agronomy_uav",
+      "cutoff": 90,
+      "spearman": 0.47769896822993757,
+      "top10_overlap": 4.0
+    },
+    {
+      "model": "combined",
+      "cutoff": 60,
+      "spearman": 0.48210607340712136,
+      "top10_overlap": 4.4
+    },
+    {
+      "model": "combined",
+      "cutoff": 75,
+      "spearman": 0.5836523197555588,
+      "top10_overlap": 4.0
+    },
+    {
+      "model": "combined",
+      "cutoff": 90,
+      "spearman": 0.4512858421298952,
+      "top10_overlap": 4.6
+    },
+    {
+      "model": "combined_uav",
+      "cutoff": 60,
+      "spearman": 0.5348261343572137,
+      "top10_overlap": 4.2
+    },
+    {
+      "model": "combined_uav",
+      "cutoff": 75,
+      "spearman": 0.48957210744225155,
+      "top10_overlap": 4.0
+    },
+    {
+      "model": "combined_uav",
+      "cutoff": 90,
+      "spearman": 0.47412720012656456,
+      "top10_overlap": 4.4
+    },
+    {
+      "model": "mean",
+      "cutoff": 60,
+      "spearman": null,
+      "top10_overlap": null
+    },
+    {
+      "model": "mean",
+      "cutoff": 75,
+      "spearman": null,
+      "top10_overlap": null
+    },
+    {
+      "model": "mean",
+      "cutoff": 90,
+      "spearman": null,
+      "top10_overlap": null
+    },
+    {
+      "model": "ridge_agronomy",
+      "cutoff": 60,
+      "spearman": 0.5270999998228568,
+      "top10_overlap": 4.0
+    },
+    {
+      "model": "ridge_agronomy",
+      "cutoff": 75,
+      "spearman": 0.5270999998228568,
+      "top10_overlap": 4.0
+    },
+    {
+      "model": "ridge_agronomy",
+      "cutoff": 90,
+      "spearman": 0.5270999998228568,
+      "top10_overlap": 4.0
+    },
+    {
+      "model": "ridge_combined",
+      "cutoff": 60,
+      "spearman": 0.4817114252321196,
+      "top10_overlap": 5.0
+    },
+    {
+      "model": "ridge_combined",
+      "cutoff": 75,
+      "spearman": 0.4766175578141696,
+      "top10_overlap": 4.6
+    },
+    {
+      "model": "ridge_combined",
+      "cutoff": 90,
+      "spearman": 0.47722223239778766,
+      "top10_overlap": 5.0
+    }
+  ],
+  "sources": {
+    "observed": "observed_environment.csv; observed_site.csv; observed_hybrids.csv",
+    "nitrogen": "nitrogen_pairs.csv; nitrogen_sites.csv",
+    "forecast": "yield_metrics.csv; ranking_metrics.csv; ridge_fold_audit.json"
+  },
+  "limitations": [
+    "Five sites in 2022 only; no cross-season validation.",
+    "Descriptive nitrogen contrasts, not causal irrigation or economic recommendations.",
+    "Rankings average treatment percentiles within site and weight sites equally.",
+    "Shortlist is observed-harvest evidence; forecasts are evaluated separately.",
+    "Ridge comparisons are exploratory development using the already examined 2022 dataset."
+  ]
+}

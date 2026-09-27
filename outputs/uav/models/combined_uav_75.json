@@ -1,0 +1,83 @@
+{
+  "features": [
+    "planting_doy",
+    "poundsOfNitrogenPerAcre",
+    "irrigationProvided",
+    "genotype",
+    "latest_red",
+    "latest_green",
+    "latest_blue",
+    "latest_nir",
+    "latest_red_edge",
+    "latest_deep_blue",
+    "latest_ndvi",
+    "latest_ndre",
+    "delta_red",
+    "delta_green",
+    "delta_blue",
+    "delta_nir",
+    "delta_red_edge",
+    "delta_deep_blue",
+    "delta_ndvi",
+    "delta_ndre",
+    "observation_count",
+    "image_age_days",
+    "observation_gap_days",
+    "latest_valid_pixels",
+    "latest_valid_fraction",
+    "missing_imagery",
+    "uav_latest_red",
+    "uav_latest_green",
+    "uav_latest_blue",
+    "uav_latest_excess_green",
+    "uav_latest_excess_green_iqr",
+    "uav_latest_green_fraction",
+    "uav_delta_red",
+    "uav_delta_green",
+    "uav_delta_blue",
+    "uav_delta_excess_green",
+    "uav_delta_excess_green_iqr",
+    "uav_delta_green_fraction",
+    "uav_observation_count",
+    "uav_image_age_days",
+    "uav_observation_gap_days",
+    "uav_valid_fraction",
+    "uav_missing_imagery"
+  ],
+  "cutoff": 75,
+  "variant": "combined_uav",
+  "training_years": [
+    2022
+  ],
+  "training_locations": [
+    "Ames",
+    "Crawfordsville",
+    "Lincoln",
+    "MOValley",
+    "Scottsbluff"
+  ],
+  "training_plots": 2131,
+  "band_mapping": {
+    "red": 1,
+    "green": 2,
+    "blue": 3,
+    "nir": 4,
+    "red_edge": 5,
+    "deep_blue": 6
+  },
+  "parameters": {
+    "iterations": 400,
+    "depth": 5,
+    "learning_rate": 0.05,
+    "loss_function": "RMSE",
+    "random_seed": 42,
+    "thread_count": 4
+  },
+  "uav_settings": {
+    "version": 1,
+    "normalization": "rgb / (r + g + b)",
+    "mask": "alpha > 0 and RGB sum > 0",
+    "green": "g > r and g > b"
+  },
+  "warning": "Full-data fit for inference only; never use for reported validation metrics."
+}

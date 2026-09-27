@@ -10,8 +10,9 @@ import pandas as pd
 
 from .modeling import fit_model, location_folds, model_matrix, regression_metrics, scouting_metrics
 from .insights import hybrid_tables, compare_rankings
+from .uav import UAV_FEATURES
 
-MODEL_LABELS = {"mean": "Training mean", "nitrogen": "Nitrogen only", "agronomy": "Agronomic records", "combined": "Agronomy + satellite"}
+MODEL_LABELS = {"mean": "Training mean", "nitrogen": "Nitrogen only", "agronomy": "Agronomic records", "combined": "Agronomy + satellite", "agronomy_uav": "Agronomy + UAV", "combined_uav": "Agronomy + satellite + UAV (experimental)"}
 
 
 def warning_queue(frame, capacity=10):
@@ -21,6 +22,7 @@ def warning_queue(frame, capacity=10):
     if not isinstance(capacity, (int, np.integer)) or isinstance(capacity, bool) or not 1 <= capacity <= len(frame):
         raise ValueError("Capacity must be an integer between 1 and the plot count")
     names = ["plot_id", "location", "experiment", "range", "row", "genotype", "cutoff", "prediction_date", "predicted_yield", "delta_ndvi", "image_age_days", "observation_count", "missing_imagery"]
+    names += [c for c in ["model", *UAV_FEATURES] if c in frame]
     result = frame[names].sort_values(["predicted_yield", "plot_id"]).reset_index(drop=True).copy()
     result["priority"] = np.arange(1, len(result) + 1)
     result["selected"] = result.priority.le(capacity)
@@ -71,12 +73,12 @@ def build(output=Path("outputs"), reuse=False):
             score = scouting_metrics(g, capacity=min(10, len(g)))
             row = dict(cutoff=int(cutoff), model=model, location=site, **regression_metrics(g), **score)
             metrics.append(row); site_rows.append(row)
-            if model == "combined":
-                queue = warning_queue(g)
+            if model in {"combined", "combined_uav"}:
+                queue = warning_queue(g, min(10, len(g)))
                 queues.append(queue)
                 if cutoff >= 75:
                     warning = scouting_metrics(g, fraction=.2)
-                    thresholds.append(dict(cutoff=int(cutoff), location=site, warning_yield_boundary=float(queue.loc[queue.warning_flag, "predicted_yield"].max()), **warning))
+                    thresholds.append(dict(cutoff=int(cutoff), model=model, location=site, warning_yield_boundary=float(queue.loc[queue.warning_flag, "predicted_yield"].max()), **warning))
         total = pd.DataFrame(site_rows)
         metrics.append(dict(cutoff=int(cutoff), model=model, location="Overall", **regression_metrics(group), k=int(total.k.sum()), target_n=int(total.target_n.sum()), hits=int(total.hits.sum()), precision_at_k=total.hits.sum()/total.k.sum(), recall_at_k=total.hits.sum()/total.target_n.sum()))
         predicted_plots = plots.drop(columns="yieldPerAcre").merge(group[["plot_id", "predicted_yield"]], on="plot_id", validate="one_to_one")
@@ -101,10 +103,10 @@ def build(output=Path("outputs"), reuse=False):
     cases = cases.merge(before[["nitrogen", "agronomy"]], left_on="plot_id", right_index=True, validate="one_to_one")
     cases.to_csv(dest / "case_examples.csv", index=False)
     summary = metrics.loc[metrics.location.eq("Overall")]
-    warning_summary = thresholds.groupby("cutoff")[["k", "target_n", "hits"]].sum().reset_index()
+    warning_summary = thresholds.groupby(["cutoff", "model"])[["k", "target_n", "hits"]].sum().reset_index()
     warning_summary["precision"] = warning_summary.hits / warning_summary.k
     warning_summary["recall"] = warning_summary.hits / warning_summary.target_n
-    claims = dict(scope="2022 historical replay - held-out-location predictions", plots=len(plots), locations=5, hybrids=int(plots.genotype.nunique()),
+    claims = dict(scope="2022 historical replay - held-out-location predictions", plots=len(plots), locations=int(plots.location.nunique()), hybrids=int(plots.genotype.nunique()),
                   rule="From day 75, flag the lowest predicted 20% within each site, then inspect plots in priority order up to capacity.",
                   rule_status="Fixed candidate screening rule; not tuned here, not validated for preventable stress or future seasons.",
                   capacity=10, overall=summary.replace({np.nan:None}).to_dict("records"), warning=warning_summary.to_dict("records"),

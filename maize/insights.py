@@ -20,6 +20,7 @@ from .modeling import VARIANTS, location_folds, model_matrix, regression_metrics
 
 ENV = ["location", "year", "poundsOfNitrogenPerAcre", "irrigationProvided"]
 LABELS = {"mean": "Training mean", "agronomy": "CatBoost: agronomy", "combined": "CatBoost: combined",
+          "agronomy_uav": "CatBoost: agronomy + UAV", "combined_uav": "CatBoost: satellite + UAV",
           "ridge_agronomy": "Ridge: agronomy", "ridge_combined": "Ridge: combined"}
 
 
@@ -246,7 +247,7 @@ def make_figures(out, claims, observed_sites, forecast_sites, ranks, metrics, pa
     overall = metrics.loc[metrics.location.eq("Overall") & metrics.cutoff.isin([75, 90])]
     colors = {"mean": "#888888", "agronomy": "#b07a43", "combined": "#237347", "ridge_agronomy": "#baa184", "ridge_combined": "#4b8293"}
     for model, frame in overall.groupby("model"):
-        axes[0].plot(frame.cutoff, frame.mae, marker="o", label=LABELS[model], color=colors[model])
+        axes[0].plot(frame.cutoff, frame.mae, marker="o", label=LABELS[model], color=colors.get(model))
     axes[0].set(xlabel="Days after planting", ylabel="Held-out MAE (bu/ac)", title="Yield forecast error", xticks=[75, 90])
     axes[0].legend(fontsize=8, loc="upper center", bbox_to_anchor=(0.5, -0.18), ncol=2)
     for model in ["combined", "ridge_combined"]:

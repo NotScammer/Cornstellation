@@ -19,6 +19,9 @@ catboost_info/
 node_modules/
 .matplotlib/
 outputs/smoke/
+outputs/uav-smoke/
+outputs/uav/image_cache.parquet
+outputs/uav/uav_image_cache.parquet
 
 # Local caches and credentials.
 .ipynb_checkpoints/

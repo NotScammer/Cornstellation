@@ -37,7 +37,7 @@ def normalize_keys(frame):
     # Verified source typo: MOValley ground truth says Hyrbrids; TIFFs say Hybrids.
     typo = frame.location.eq("MOValley") & frame.experiment.eq("Hyrbrids")
     frame.loc[typo, "experiment"] = "Hybrids"
-    frame["plot_id"] = frame[KEYS].agg("|".join, axis=1)
+    frame["plot_id"] = frame[KEYS].agg("|".join, axis=1) if len(frame) else pd.Series(dtype=str)
     return frame
 
 
@@ -68,14 +68,14 @@ def load_records(root):
     return frame
 
 
-def load_dates(root):
+def load_dates(root, source="Satellite"):
     dates = pd.read_excel(Path(root) / "GroundTruth" / "DateofCollection.xlsx")
-    dates = dates.loc[dates.Image.astype(str).str.strip().eq("Satellite")].copy()
+    dates = dates.loc[dates.Image.astype(str).str.strip().eq(source)].copy()
     dates = dates.rename(columns={"Location": "location", "Date": "image_date", "time": "timepoint"})
     dates["location"] = dates.location.map(canonical_site)
     dates["image_date"] = pd.to_datetime(dates.image_date, errors="raise")
     if dates.duplicated(["location", "timepoint"]).any() or dates.image_date.isna().any():
-        raise ValueError("Satellite collection dates must be present and unique per site/timepoint.")
+        raise ValueError(f"{source} collection dates must be present and unique per site/timepoint.")
     return dates[["location", "timepoint", "image_date"]]
 
 
@@ -230,6 +230,13 @@ def prepare(root, output, config, cutoffs, workers=8):
     if eligible_images.duplicated(["plot_id", "timepoint"]).any():
         raise ValueError("Duplicate images for a plot/timepoint.")
     features = build_cutoff_features(plots, eligible_images, cutoffs)
+    if config.get("include_uav", False):
+        from .uav import extract_uav, add_uav_features
+        features = add_uav_features(features, extract_uav(root, output, plots, workers))
+        features.groupby(["cutoff", "location"]).agg(
+            plots=("plot_id", "size"), missing_uav=("uav_missing_imagery", "sum"),
+            mean_observations=("uav_observation_count", "mean")
+        ).reset_index().to_csv(output / "uav_coverage.csv", index=False)
     features.to_parquet(output / "features.parquet", index=False)
     missing = plots.loc[~plots.plot_id.isin(eligible_images.plot_id)]
     missing.to_csv(output / "plots_without_images.csv", index=False)

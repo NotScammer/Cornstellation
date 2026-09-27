@@ -1,0 +1,17 @@
+{
+  "files": 7281,
+  "usable_images": 6825,
+  "errors": 0,
+  "unmatched_or_undated": 456,
+  "modes": {
+    "RGBA": 5685,
+    "RGB": 1596
+  },
+  "data_root": "C:\\Users\\sonpo\\Desktop\\Hackathon\\2022\\DataPublication_final",
+  "settings": {
+    "version": 1,
+    "normalization": "rgb / (r + g + b)",
+    "mask": "alpha > 0 and RGB sum > 0",
+    "green": "g > r and g > b"
+  }
+}

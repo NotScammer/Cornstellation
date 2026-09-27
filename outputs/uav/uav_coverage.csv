@@ -1,0 +1,16 @@
+cutoff,location,plots,missing_uav,mean_observations
+60,Ames,487,0,1.0
+60,Crawfordsville,489,489,0.0
+60,Lincoln,504,0,1.0
+60,MOValley,168,168,0.0
+60,Scottsbluff,509,0,1.0
+75,Ames,487,0,2.0
+75,Crawfordsville,489,0,1.0
+75,Lincoln,504,0,3.0
+75,MOValley,168,0,1.0
+75,Scottsbluff,509,0,2.0
+90,Ames,487,0,3.0
+90,Crawfordsville,489,0,2.0
+90,Lincoln,504,0,3.0
+90,MOValley,168,0,2.0
+90,Scottsbluff,509,0,3.0

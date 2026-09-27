@@ -51,6 +51,7 @@ with st.sidebar:
     evidence = st.selectbox("Evidence source", ["Observed harvest (2022)", "Forecast (held-out sites)"])
     forecast = evidence.startswith("Forecast")
     cutoff = st.select_slider("Forecast cutoff (days after planting)", [60, 75, 90], value=90, disabled=not forecast)
+    st.caption("Hybrid performance retains the existing satellite and agronomy comparisons; UAV scouting is available in the scouting workspaces.")
     chosen_model = st.selectbox("Forecast model", ["combined", "ridge_combined", "agronomy", "ridge_agronomy"], format_func=LABELS.get, disabled=not forecast)
     st.caption("Forecasts for each location come from models trained on other locations. Ridge is an exploratory 2022 comparison.")
     st.divider()

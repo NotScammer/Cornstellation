@@ -1,11 +1,13 @@
 """Forecast-only, illustrative expectation-gap screen. Not a calibrated risk model."""
 import math
 import pandas as pd
+from .uav import UAV_FEATURES
 
 
-def plan_tables(predictions, cutoff):
-    columns = ["plot_id", "location", "experiment", "range", "row", "genotype", "predicted_yield", "delta_ndvi", "image_age_days", "observation_count", "missing_imagery", "prediction_date"]
-    combined = predictions.loc[predictions.cutoff.eq(cutoff) & predictions.model.eq("combined"), columns].copy()
+def plan_tables(predictions, cutoff, model="combined"):
+    columns = ["cutoff", "plot_id", "location", "experiment", "range", "row", "genotype", "predicted_yield", "delta_ndvi", "image_age_days", "observation_count", "missing_imagery", "prediction_date"]
+    columns += [c for c in ["model", *UAV_FEATURES] if c in predictions]
+    combined = predictions.loc[predictions.cutoff.eq(cutoff) & predictions.model.eq(model), columns].copy()
     agronomy = predictions.loc[predictions.cutoff.eq(cutoff) & predictions.model.eq("agronomy"), ["plot_id", "predicted_yield"]].rename(columns={"predicted_yield":"agronomy_yield"})
     frame = combined.merge(agronomy, on="plot_id", validate="one_to_one")
     if len(frame) != len(combined):
@@ -28,13 +30,14 @@ def plan_tables(predictions, cutoff):
     return frame, sites
 
 
-def hybrid_watch(forecast_sites, cutoff):
+def hybrid_watch(forecast_sites, cutoff, model="combined"):
     keys = ["genotype", "location", "year"]
-    base = forecast_sites.loc[forecast_sites.cutoff.eq(cutoff) & forecast_sites.model.eq("combined"), keys + ["site_percentile"]]
+    base = forecast_sites.loc[forecast_sites.cutoff.eq(cutoff) & forecast_sites.model.eq(model), keys + ["site_percentile"]]
     agronomy = forecast_sites.loc[forecast_sites.cutoff.eq(cutoff) & forecast_sites.model.eq("agronomy"), keys + ["site_percentile"]].rename(columns={"site_percentile":"expectation_percentile"})
     joined = base.merge(agronomy, on=keys, validate="one_to_one")
     joined["below_expectation"] = (joined.expectation_percentile - joined.site_percentile).ge(20)
     joined["above_median"] = joined.site_percentile.gt(50)
     watch = joined.groupby("genotype", as_index=False).agg(average_percentile=("site_percentile","mean"), worst_site=("site_percentile","min"), best_site=("site_percentile","max"), sites=("location","nunique"), above_median=("above_median","sum"), below_expectation=("below_expectation","sum"))
+    watch["model"] = model
     watch["site_spread"] = watch.best_site - watch.worst_site
     return watch.sort_values(["average_percentile","genotype"], ascending=[False,True])
